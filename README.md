@@ -1,4 +1,4 @@
-# VPN加速器 | 2月16日21.6M/S|免费VPN/V2ray/Clash/Shadowrocket/SSR免费节点订阅分享  更新时间 2025-02-16 14:54:37
+# VPN加速器 | 2月18日21.5M/S|免费VPN/Shadowrocket/V2ray/SSR/Clash免费节点订阅分享  更新时间 2025-02-18 09:58:24
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://vpnjiasuqi.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### Clash订阅链接
 
-- https://vpnjiasuqi.github.io/uploads/2025/02/0-20250216.yaml
-- https://vpnjiasuqi.github.io/uploads/2025/02/1-20250216.yaml
-- https://vpnjiasuqi.github.io/uploads/2025/02/2-20250216.yaml
-- https://vpnjiasuqi.github.io/uploads/2025/02/3-20250216.yaml
-- https://vpnjiasuqi.github.io/uploads/2025/02/4-20250216.yaml
+- https://vpnjiasuqi.github.io/uploads/2025/02/0-20250218.yaml
+- https://vpnjiasuqi.github.io/uploads/2025/02/1-20250218.yaml
+- https://vpnjiasuqi.github.io/uploads/2025/02/2-20250218.yaml
+- https://vpnjiasuqi.github.io/uploads/2025/02/3-20250218.yaml
+- https://vpnjiasuqi.github.io/uploads/2025/02/4-20250218.yaml
 
 ### V2ray订阅链接
 
-- https://vpnjiasuqi.github.io/uploads/2025/02/0-20250216.txt
-- https://vpnjiasuqi.github.io/uploads/2025/02/1-20250216.txt
-- https://vpnjiasuqi.github.io/uploads/2025/02/2-20250216.txt
-- https://vpnjiasuqi.github.io/uploads/2025/02/3-20250216.txt
-- https://vpnjiasuqi.github.io/uploads/2025/02/4-20250216.txt
+- https://vpnjiasuqi.github.io/uploads/2025/02/0-20250218.txt
+- https://vpnjiasuqi.github.io/uploads/2025/02/1-20250218.txt
+- https://vpnjiasuqi.github.io/uploads/2025/02/2-20250218.txt
+- https://vpnjiasuqi.github.io/uploads/2025/02/3-20250218.txt
+- https://vpnjiasuqi.github.io/uploads/2025/02/4-20250218.txt
 
 ### Sing-box订阅链接
 
-- https://vpnjiasuqi.github.io/uploads/2025/02/20250216.json
+- https://vpnjiasuqi.github.io/uploads/2025/02/20250218.json
 
 ## 更多clash节点订阅 ：
 
