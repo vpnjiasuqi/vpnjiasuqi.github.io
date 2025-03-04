@@ -139,6 +139,7 @@
                   				  				  				<div id="content_views" class="htmledit_views"> <p>1.变量可以指向函数 2.函数名其实就是指向函数的变量 3.高阶函数：能接收函数做参数的函数 4.函数的参数可以接收变量 5.一个函数可以接收另一个函数作为参数 python函数 1.系统库提供的内部函数 2.第三方提供的函数 3.自定义函数 1.系统库函数 字符函数库()，数字函数库()，网络编程库(urllib2) &gt;&gt;&gt;help(str) 字符串帮助可获得系统中的字符串函数们（同理其他函数） &gt;&gt;&gt;help(str.islower) s.islower() //判断字符串s是否为小写 s.replace(old,new,count) import math #数学库 &gt;&gt;&gt;value=math.sin(3.14/6) &gt;&gt;&gt;math.pi #为派 &gt;&gt;&gt;val = math.sin(math.pi/6) &gt;&gt;&gt;print val 0.5 &gt;&gt;&gt;help(math) #查看math库 &gt;&gt;&gt;math.pow(3,4) # 3的4次方 或者 &gt;&gt;&gt;3**4 #也是代表 3的4次方 这两种方法一个是调用math库，另一个是调用本身的定义 import os &gt;&gt;&gt;os.getcwd() #获得当前的工作路径 &gt;&gt;&gt;help(os.getcwd) os.listdir() #列出指定路径下面的文件 网络函数库 &gt;&gt;&gt;import socket &gt;&gt;&gt;baiduip = socket.gethostbyname('www.baidu.com') //获得ip &gt;&gt;&gt;print baiduip 函数返回多个值 可以 return a,b,c,d &gt;&gt;&gt;sum1,multi,plus,pow = functionaaa(2,10) #函数一起返回，变量一起接收 ，返回的是一个 tuple 元祖 函数可设定默认值但默认值一定写在形参的右侧 函数 有 必选参数，默认参数，可变参数，关键字参数等 当函数有多个参数时，把变化大的参数放前面，变化小的参数放后面。变化小的参数就可以作为默认参数 定义默认参数要牢记一点：默认参数必须指向不变对象！ 可变参数：就是传人的参数个数是可变的，可以是0个，1个，或者任意个。 例如 算一组数字的平方和，根本不知道有几个数字，可以考虑将其放置一个list或者tuple传进来。 def calc(numbers): sum=0 for n in numbers: sum = sum + n*n return sum 如果利用可变参数，调用函数就可以简单了，把函数参数改成可变参数： def calc(*numbers): sum = 0 for n in numbers: sum = sum + n*n return sum def(1,2,3,4,5) #而不需要list和tuple啦 定义可变参数和定义list和tuple参数相比，仅仅在参数前面加了一个*号，看着像C/C++指针一样，但在函数内部，参数numbers接收到的是一个tuple,因此函数内部代码完全不用变。 如果本身已经定义了一个list或者tuple,故传入参数时仅仅在你的list和tuple前加一个*号，就可以传参数啦 def calc(*number): sum = 0 for n in number: sum = sum + n*n return sum print calc(1,2,3,4,5) a=[1,2,3,4,5] print calc(*a) 区别在于调用的时候是否加上 * ，如果是list或者tuple，调用时候加*，否则就直接传参数即可。 关键字参数与可变参数区别在于： 可变参数允许你传入0个或任意个参数，这些可变参数在函数调用时自动组装为一个tuple。而关键字参数允许你传入0个或任意个含参数名的参数，这些关键字参数在函数内部自动组装为一个dict 就仅仅是 tuple和dict的区别 def person(name, age, **kw): print 'name:', name, 'age:', age, 'other:', kw &gt;&gt;&gt; person('Jack', 24, **kw) name: Jack age: 24 other: {'city': 'Beijing', 'job': 'Engineer'} 可变参数既可以直接传入：func(1, 2, 3)，又可以先组装list或tuple，再通过*args传入：func(*(1, 2, 3))； 关键字参数既可以直接传入：func(a=1, b=2)，又可以先组装dict，再通过**kw传入：func(**{'a': 1, 'b': 2})。 使用*args和**kw是Python的习惯写法，当然也可以用其他参数名，但最好使用习惯用法。</p> </p></div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-66670.htm">spring schedule 配置多任务动态 cron 【增删启停】</a></p>
+                                        <p>下一个：<a href="/news/article-67303.htm">CountDownLatch和CyclicBarrier：如何让多线程步调一致</a></p>
                                     </div>
                                     </div>
                     <div class="col-md-3">
@@ -148,16 +149,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-66037.htm" title="开宠物店需要掌握的知识（开宠物店需要会什么）">开宠物店需要掌握的知识（开宠物店需要会什么）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-2-27-free-v2ray.htm" title="VPN加速器 | 2月27日18.2M/S|免费VPN/V2ray/Shadowrocket/Clash/SSR免费节点订阅分享">VPN加速器 | 2月27日18.2M/S|免费VPN/V2ray/Shadowrocket/Clash/SSR免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-1-node-share.htm" title="VPN加速器 | 3月1日20M/S|免费VPN/Clash/SSR/Shadowrocket/V2ray免费节点订阅分享">VPN加速器 | 3月1日20M/S|免费VPN/Clash/SSR/Shadowrocket/V2ray免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/news/article-67305.htm" title="猫咪领养协议有法律效应吗（猫咪领养协议是否合理）">猫咪领养协议有法律效应吗（猫咪领养协议是否合理）</a></li>
+                        <li class="py-2"><a href="/news/article-58930.htm" title="常州宠颐生动物医院电话号码（常州宠颐生美多格动物医院）">常州宠颐生动物医院电话号码（常州宠颐生美多格动物医院）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-3-free-high-speed-nodes.htm" title="VPN加速器 | 3月3日20.3M/S|免费VPN/Clash/SSR/Shadowrocket/V2ray免费节点订阅分享">VPN加速器 | 3月3日20.3M/S|免费VPN/Clash/SSR/Shadowrocket/V2ray免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/news/article-61189.htm" title="去宠物店驱虫一次多少钱 猫咪去宠物店驱虫一次多少钱">去宠物店驱虫一次多少钱 猫咪去宠物店驱虫一次多少钱</a></li>
+                        <li class="py-2"><a href="/news/article-64804.htm" title="feign.RetryableException: Read timed out executing&#8212;SpringCloud组件Feign连接超时处理">feign.RetryableException: Read timed out executing&#8212;SpringCloud组件Feign连接超时处理</a></li>
                         <li class="py-2"><a href="/news/article-58929.htm" title="兽用疫苗稀释液能冷冻吗多久（兽用活疫苗稀释后多久内使用）">兽用疫苗稀释液能冷冻吗多久（兽用活疫苗稀释后多久内使用）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-3-2-free-subscribe-node.htm" title="VPN加速器 | 3月2日18.1M/S|免费VPN/Shadowrocket/SSR/V2ray/Clash免费节点订阅分享">VPN加速器 | 3月2日18.1M/S|免费VPN/Shadowrocket/SSR/V2ray/Clash免费节点订阅分享</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-2-24-clash-v2ray-ss-ssr.htm" title="VPN加速器 | 2月24日22.4M/S|免费VPN/Clash/V2ray/SSR/Shadowrocket免费节点订阅分享">VPN加速器 | 2月24日22.4M/S|免费VPN/Clash/V2ray/SSR/Shadowrocket免费节点订阅分享</a></li>
-                        <li class="py-2"><a href="/news/article-63573.htm" title="@RequestBody接收json对象报415的解决办法">@RequestBody接收json对象报415的解决办法</a></li>
-                        <li class="py-2"><a href="/news/article-65429.htm" title="动物疫苗过敏反应有哪些症状和表现（打动物疫苗有什么过敏反应）">动物疫苗过敏反应有哪些症状和表现（打动物疫苗有什么过敏反应）</a></li>
-                        <li class="py-2"><a href="/news/article-57820.htm" title="Java-GUI 编程之 Swing_在线工具">Java-GUI 编程之 Swing_在线工具</a></li>
-                        <li class="py-2"><a href="/news/article-65426.htm" title="参观动物园心得300字（参观动物园心得体会80字）">参观动物园心得300字（参观动物园心得体会80字）</a></li>
-                        <li class="py-2"><a href="/news/article-60628.htm" title="宠物医院治猫藓大概多少钱（宠物医院治疗猫藓贵吗）">宠物医院治猫藓大概多少钱（宠物医院治疗猫藓贵吗）</a></li>
+                        <li class="py-2"><a href="/news/article-67303.htm" title="CountDownLatch和CyclicBarrier：如何让多线程步调一致">CountDownLatch和CyclicBarrier：如何让多线程步调一致</a></li>
+                        <li class="py-2"><a href="/news/article-64193.htm" title="JSON.parse 和 JSON.stringify 详解_在线工具">JSON.parse 和 JSON.stringify 详解_在线工具</a></li>
+                        <li class="py-2"><a href="/news/article-66670.htm" title="spring schedule 配置多任务动态 cron 【增删启停】">spring schedule 配置多任务动态 cron 【增删启停】</a></li>
                     </ul>
     </div>
 </div>
@@ -169,7 +170,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">36</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
