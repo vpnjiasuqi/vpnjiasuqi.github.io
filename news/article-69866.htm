@@ -1,0 +1,257 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://vpnjiasuqi.github.io/news/article-69866.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>vuex几大模块和Vuex助手使用详解</title>
+        <meta name="description" content="Vuex 是一个专为 Vue.js 应用程序开发的状态管理库，用于保存用用程序的状态，即信息或数据，使得Vuex使应用程序的所有组件可以共享数据。每一个 Vuex 应用的核心就是 store（仓库），" />
+        <link rel="icon" href="/assets/website/img/v2ray_clash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="VPN加速器 机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://vpnjiasuqi.github.io/news/article-69866.htm" />
+    <meta property="og:site_name" content="VPN加速器 机场订阅节点官网" />
+    <meta property="og:title" content="vuex几大模块和Vuex助手使用详解" />
+    <meta property="og:image" content="https://vpnjiasuqi.github.io/uploads/20250105/751329f1ea8a4599d324755ecfb89fee.webp" />
+        <meta property="og:release_date" content="2025-03-08T05:07:05" />
+    <meta property="og:updated_time" content="2025-03-08T05:07:05" />
+        <meta property="og:description" content="Vuex 是一个专为 Vue.js 应用程序开发的状态管理库，用于保存用用程序的状态，即信息或数据，使得Vuex使应用程序的所有组件可以共享数据。每一个 Vuex 应用的核心就是 store（仓库），" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="vuex几大模块和Vuex助手使用详解">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- bootstrap 4.0 css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/bootstrap.min.css">
+    <!-- owl.carousel css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/owl.carousel.min.css">
+    <!-- Animate css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/animate.min.css">
+    <!-- magnific css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/magnific-popup.css">
+    <!-- meanmenu css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/meanmenu.min.css">
+    <!-- venobox css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/venobox.css">
+    <!-- Icon font css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/flaticon.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/style.css">
+    <!-- responsive css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/responsive.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0RR1MWQRCP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0RR1MWQRCP');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- preloader  -->
+    <div id="preloader"></div>
+    <!-- Start header -->
+    <header class="header-one">
+        <div id="sticker" class="header-menu-area header-area header-area-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-4 d-flex align-items-center">
+                        <div class="logo">
+                            <a href="/">
+                                                                <span>VPN加速器</span>
+                                                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 col-md-8">
+                        <div class="header_menu t-center">
+                            <nav id="mobile-menu">
+                                <ul class="main-menu">
+                                                                        <li class="contact"><a href="/">首页</a></li>
+                                                                        <li class="contact"><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li class="contact"><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li class="contact"><a href="/news/">新闻资讯</a></li>
+                                                                        <li class="contact"><a href="/client.htm">客户端</a></li>
+                                                                    </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="mobile-menu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End header area -->
+    <main>
+        <!-- Start Breadcrumb Area -->
+        <div class="page-area bread-pd">
+            <div class="breadcumb-overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb-title text-center">
+                            <h1>vuex几大模块和Vuex助手使用详解</h1>
+                            <div class="bread-come">
+                                <nav aria-label="breadcrumb ">
+                                    <ol class="breadcrumb purple lighten-4 justify-content-center">
+                                        <li class="breadcrumb-items"><a class="black-text" href="/">首页</a><i class="ti-angle-right" aria-hidden="true"></i></li>
+                                        <li class="breadcrumb-items"><a href="/news/">新闻资讯<i class="ti-angle-right" aria-hidden="true"></i></a></li>
+                                        <li class="breadcrumb-items">正文</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Breadcrumb Area -->
+        <!-- Service area start -->
+        <div class="service-area bg-color area-padding-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>Vuex 是一个专为 Vue.js 应用程序开发的状态管理库，用于保存用用程序的状态，即信息或数据，使得Vuex使应用程序的所有组件可以共享数据。每一个 Vuex 应用的核心就是 store（仓库），包含着你的应用中大部分的状态 ( state )，改变 store 中的状态的唯一途径就是显式地提交 (commit) mutation。</p> <h2> <a id="1Vuex_1" rel="nofollow"></a>1、Vuex主要有以下几个模块</h2> <ol> <li>state：定义了应用程序的数据，可以设置默认的初始状态。</li> <li>getters：允许组件从 store 中获取数据 。</li> <li>mutations：是唯一更改 store 中状态的方法，且必须是同步函数。但不可以直接调用mutation，必须使用commit函数来告诉Vuex更新存储并提交更改。</li> <li>actions：执行异步操作来存取状态，但也不可以直接调用action，必须使用dispatch函数来执行。<br /> 代码演示：</li> </ol> <pre><code class="prism language-javascript"><span class="token operator">&lt;</span>script<span class="token operator">&gt;</span> 	<span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vuex<span class="token punctuation">.</span>Store</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span> 		<span class="token comment">//定义状态，并赋予初始值</span> 		state<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span> 			msg<span class="token punctuation">:</span><span class="token string">'Vuex的使用'</span><span class="token punctuation">,</span> 			count<span class="token punctuation">:</span><span class="token number">0</span> 		<span class="token punctuation">}</span><span class="token punctuation">,</span> 		<span class="token comment">//使用getter来返回状态</span> 		getters<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span> 			<span class="token function">msg</span><span class="token punctuation">(</span>state<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span> 				<span class="token keyword">return</span> state<span class="token punctuation">.</span>msg<span class="token punctuation">;</span> 			<span class="token punctuation">}</span><span class="token punctuation">,</span> 			<span class="token function">count</span><span class="token punctuation">(</span>state<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span> 				<span class="token keyword">return</span> state<span class="token punctuation">.</span>count<span class="token punctuation">;</span> 			<span class="token punctuation">}</span>	 		<span class="token punctuation">}</span><span class="token punctuation">,</span> 		<span class="token comment">//可以理解为其他语言中的setter，改变状态的值，此处为把传进来的参数step累加到count中</span> 		mutations<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span> 			<span class="token function">increment</span><span class="token punctuation">(</span>state<span class="token punctuation">,</span>step<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span> 				state<span class="token punctuation">.</span>count <span class="token operator">+=</span> step<span class="token punctuation">;</span> 			<span class="token punctuation">}</span>	 		<span class="token punctuation">}</span><span class="token punctuation">,</span> 		<span class="token comment">//模拟服务器延迟1秒</span> 		<span class="token comment">//通过commit调用来触发mutations对象中的increment方法，并把参数step传递给increment</span> 		actions<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span> 			<span class="token function">increment</span><span class="token punctuation">(</span>context<span class="token punctuation">,</span>step<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span> 				<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span> 					context<span class="token punctuation">.</span><span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'increment'</span><span class="token punctuation">,</span>step<span class="token punctuation">)</span><span class="token punctuation">;</span> 				<span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 			<span class="token punctuation">}</span>	 		<span class="token punctuation">}</span><span class="token punctuation">,</span> 	<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 	<span class="token comment">//创建Vue实例</span> 	<span class="token keyword">let</span> vm <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span> 		el<span class="token punctuation">:</span><span class="token string">'#app'</span><span class="token punctuation">,</span> 		 		computed<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span> 			<span class="token comment">//可以直接通过计算属性直接获取store.state中的状态</span> 			<span class="token function">msg</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span> 				<span class="token keyword">return</span> store<span class="token punctuation">.</span>state<span class="token punctuation">.</span>msg<span class="token punctuation">;</span> 			<span class="token punctuation">}</span> 			<span class="token comment">//通过计算属性来返回getters中的count</span> 			<span class="token function">counter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span> 				<span class="token keyword">return</span> store<span class="token punctuation">.</span>getters<span class="token punctuation">.</span>count<span class="token punctuation">;</span> 			<span class="token punctuation">}</span> 		<span class="token punctuation">}</span><span class="token punctuation">,</span> 		methods<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span> 			<span class="token function">increment</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span> 				<span class="token comment">//调用dispatch方法来派发actions中的increment方法，并把参数2传递给increment</span> 				store<span class="token punctuation">.</span><span class="token function">dispatch</span><span class="token punctuation">(</span><span class="token string">'increment'</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 			<span class="token punctuation">}</span> 		<span class="token punctuation">}</span> 	<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span> </code></pre> <h2> <a id="2Vuex_66" rel="nofollow"></a>2、Vuex助手</h2> <p>Vuex为我们提供了一些辅助工具，如mapStates，mapGetters，mapMutations，mapActions，从而来减少繁杂的工作量。<br /> 对于使用mapStates,mapGetters，可以把所有的state，getter添加到计算属性中，而不用向上面代码那样逐个添加。<br /> 在使用这些助手时，必须引入。拿mapGetters举例，其他类似。</p> <pre><code class="prism language-javascript"><span class="token keyword">import</span> <span class="token punctuation">{<!-- --></span>mapGetters<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vuex'</span><span class="token punctuation">;</span> </code></pre> <p>代码演示：</p> <pre><code class="prism language-javascript">computed<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span> 	<span class="token operator">...</span>mapState<span class="token punctuation">{<!-- --></span><span class="token punctuation">[</span> 		<span class="token string">'state1'</span><span class="token punctuation">,</span> 		<span class="token string">'state2'</span><span class="token punctuation">,</span> 	<span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">,</span> 	<span class="token operator">...</span>mapGetters<span class="token punctuation">{<!-- --></span><span class="token punctuation">[</span> 		<span class="token string">'count1'</span><span class="token punctuation">,</span> 		<span class="token string">'count2'</span><span class="token punctuation">,</span> 	<span class="token punctuation">]</span><span class="token punctuation">}</span> <span class="token punctuation">}</span> </code></pre> <p>对于mapMutations,mapActions，可以在methods属性中使用，把多个mutation和action映射到应用程序。<br /> 代码演示：</p> <pre><code class="prism language-javascript">methods<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span> 	<span class="token operator">...</span><span class="token function">mapMutations</span><span class="token punctuation">(</span><span class="token punctuation">[</span> 		<span class="token comment">//mut1将this.mut1()映射到this.$store.commit('mut1'),mut2类似</span> 		<span class="token comment">//这样就不同创建每个方法，派发每个action</span> 		<span class="token string">'mut1'</span><span class="token punctuation">,</span> 		<span class="token string">'mut2'</span> 	<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">}</span> </code></pre> <p>代码演示：</p> <pre><code class="prism language-javascript">methods<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span> 	<span class="token operator">...</span><span class="token function">mapActions</span><span class="token punctuation">(</span><span class="token punctuation">[</span> 		<span class="token comment">//act1将this.act1()映射到this.$store.dispatch('act1'),act2类似</span> 		<span class="token string">'act1'</span><span class="token punctuation">,</span> 		<span class="token string">'act2'</span> 	<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">}</span> </code></pre> <h2> <a id="3Vuex_114" rel="nofollow"></a>3、Vuex模块</h2> <p>当应用程序很大时，需要划分模块，Vuex.Store实例中将增加mudules对象。<br /> 把state，getter，mutation，action对象创建在一个单独的xxx.js文件中，xxx.js在modules目录下。<br /> 代码演示：</p> <pre><code class="prism language-javascript"><span class="token keyword">const</span> state <span class="token operator">=</span> <span class="token punctuation">{<!-- --></span> 	state1<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token keyword">const</span> getters <span class="token operator">=</span> <span class="token punctuation">{<!-- --></span> 	get1<span class="token punctuation">:</span>state <span class="token operator">=&gt;</span> state<span class="token punctuation">.</span>state1 <span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token keyword">const</span> actions <span class="token operator">=</span> <span class="token punctuation">{<!-- --></span> 	initState<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token keyword">const</span> mutations <span class="token operator">=</span> <span class="token punctuation">{<!-- --></span> 	setState<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>  <span class="token comment">//导出以上四个对象</span> <span class="token keyword">export</span> <span class="token keyword">default</span><span class="token punctuation">{<!-- --></span> 	state<span class="token punctuation">,</span> 	getters<span class="token punctuation">,</span> 	mutations<span class="token punctuation">,</span> 	actions <span class="token punctuation">}</span> </code></pre> <p>使用模块，在yyy.js文件中引入模块，yyy.js在store目录下。<br /> 代码演示：</p> <pre><code class="prism language-javascript"><span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span><span class="token punctuation">;</span> impoet Vuex <span class="token keyword">from</span> <span class="token string">'vuex'</span><span class="token punctuation">;</span> <span class="token keyword">import</span> xxx <span class="token keyword">from</span> <span class="token string">'./modules/xxx'</span><span class="token punctuation">;</span>  Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>Vuex<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token keyword">export</span> <span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vuex<span class="token punctuation">.</span>Store</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span> 	modules<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span> 		<span class="token comment">//对应上面引入的xxx</span> 		xxx 	<span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> </code></pre> <p>另外，由于Vuex中所有内容共享相同的全局名称空间，当在两个不同文件中分别命名相同的state或getter或mutation或action，就会发生冲突，报错duplicate getter key。<br /> 可以在Vuex.store文件顶部设置namespaced:true，用于分解每个名称空间的模块。</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-69218.htm">动物疫苗有什么用途和作用 动物疫苗有什么用途和作用呢</a></p>
+                                        <p>下一个：<a href="/news/article-69869.htm">2022Vue.js 面试题汇总及答案</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-2-18-free-node-subscribe.htm" title="VPN加速器 | 2月18日22.6M/S|免费VPN/Clash/V2ray/SSR/Shadowrocket免费节点订阅分享">VPN加速器 | 2月18日22.6M/S|免费VPN/Clash/V2ray/SSR/Shadowrocket免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/news/article-59476.htm" title="动物防疫站电话咨询电话从哪里查（动物防疫站地址）">动物防疫站电话咨询电话从哪里查（动物防疫站地址）</a></li>
+                        <li class="py-2"><a href="/news/article-64804.htm" title="feign.RetryableException: Read timed out executing&#8212;SpringCloud组件Feign连接超时处理">feign.RetryableException: Read timed out executing&#8212;SpringCloud组件Feign连接超时处理</a></li>
+                        <li class="py-2"><a href="/news/article-58929.htm" title="兽用疫苗稀释液能冷冻吗多久（兽用活疫苗稀释后多久内使用）">兽用疫苗稀释液能冷冻吗多久（兽用活疫苗稀释后多久内使用）</a></li>
+                        <li class="py-2"><a href="/news/article-67305.htm" title="猫咪领养协议有法律效应吗（猫咪领养协议是否合理）">猫咪领养协议有法律效应吗（猫咪领养协议是否合理）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-24-clash-v2ray-ss-ssr.htm" title="VPN加速器 | 2月24日22.4M/S|免费VPN/Clash/V2ray/SSR/Shadowrocket免费节点订阅分享">VPN加速器 | 2月24日22.4M/S|免费VPN/Clash/V2ray/SSR/Shadowrocket免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-22-clash-v2ray-ss-ssr.htm" title="VPN加速器 | 2月22日22.8M/S|免费VPN/V2ray/Clash/SSR/Shadowrocket免费节点订阅分享">VPN加速器 | 2月22日22.8M/S|免费VPN/V2ray/Clash/SSR/Shadowrocket免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/news/article-60044.htm" title="Go 语言结构体链表详解">Go 语言结构体链表详解</a></li>
+                        <li class="py-2"><a href="/news/article-69866.htm" title="vuex几大模块和Vuex助手使用详解">vuex几大模块和Vuex助手使用详解</a></li>
+                        <li class="py-2"><a href="/news/article-59475.htm" title="女人养猫有什么坏处（女人养猫有什么坏处和好处）">女人养猫有什么坏处（女人养猫有什么坏处和好处）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">24</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">36</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Service area End -->
+    </main>
+        <!-- Start Footer Area -->
+    <footer class="footer1">
+        <!-- Start Footer Bottom Area -->
+        <div class="footer-area-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> |
+                                <a href="/free-node/">免费节点</a> |
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <a href="/">VPN加速器 机场订阅节点官网</a> 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="footer-menu">
+                            <ul>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Terms & Condition</a></li>
+                                <li><a href="#">Privacy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Bottom Area -->
+    </footer>
+    <!-- End Footer Area -->
+    <!-- All JS here -->
+    <!-- modernizr JS -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- jquery latest version -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/jquery-1.12.4.min.js"></script>
+    <!-- Poper js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/bootstrap.min.js"></script>
+    <!-- owl.carousel js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/owl.carousel.min.js"></script>
+    <!-- Isotop js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/isotope.pkgd.min.js"></script>
+    <!-- meanmenu js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.meanmenu.js"></script>
+    <!-- Counter js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.counterup.min.js"></script>
+    <!-- waypoint js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/v2ray_clash/tilts.js"></script>
+    <!-- venobox js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/venobox.min.js"></script>
+    <!-- magnific js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/magnific.min.js"></script>
+    <!-- wow js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/wow.min.js"></script>
+    <!-- plugins js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/plugins.js"></script>
+    <!-- main js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
