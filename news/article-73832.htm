@@ -1,0 +1,257 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://vpnjiasuqi.github.io/news/article-73832.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>使用API访问开启kerberos集群下的HDFS</title>
+        <meta name="description" content="使用API访问开启安全Kerberos的Hdfs   hadoop集群(cdh集群)在开启kerberos安全认证方式后，通常如果在集群shell客户端通过hadoop dfs命令访问的，经过kini" />
+        <link rel="icon" href="/assets/website/img/v2ray_clash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="VPN加速器 机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://vpnjiasuqi.github.io/news/article-73832.htm" />
+    <meta property="og:site_name" content="VPN加速器 机场订阅节点官网" />
+    <meta property="og:title" content="使用API访问开启kerberos集群下的HDFS" />
+    <meta property="og:image" content="https://vpnjiasuqi.github.io/uploads/20250105/5b455e62afbcfaf3f36239fb6c6cddcc.webp" />
+        <meta property="og:release_date" content="2025-03-14T07:06:59" />
+    <meta property="og:updated_time" content="2025-03-14T07:06:59" />
+        <meta property="og:description" content="使用API访问开启安全Kerberos的Hdfs   hadoop集群(cdh集群)在开启kerberos安全认证方式后，通常如果在集群shell客户端通过hadoop dfs命令访问的，经过kini" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="使用API访问开启kerberos集群下的HDFS">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- bootstrap 4.0 css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/bootstrap.min.css">
+    <!-- owl.carousel css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/owl.carousel.min.css">
+    <!-- Animate css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/animate.min.css">
+    <!-- magnific css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/magnific-popup.css">
+    <!-- meanmenu css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/meanmenu.min.css">
+    <!-- venobox css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/venobox.css">
+    <!-- Icon font css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/flaticon.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/style.css">
+    <!-- responsive css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/responsive.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0RR1MWQRCP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0RR1MWQRCP');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- preloader  -->
+    <div id="preloader"></div>
+    <!-- Start header -->
+    <header class="header-one">
+        <div id="sticker" class="header-menu-area header-area header-area-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-4 d-flex align-items-center">
+                        <div class="logo">
+                            <a href="/">
+                                                                <span>VPN加速器</span>
+                                                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 col-md-8">
+                        <div class="header_menu t-center">
+                            <nav id="mobile-menu">
+                                <ul class="main-menu">
+                                                                        <li class="contact"><a href="/">首页</a></li>
+                                                                        <li class="contact"><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li class="contact"><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li class="contact"><a href="/news/">新闻资讯</a></li>
+                                                                        <li class="contact"><a href="/client.htm">客户端</a></li>
+                                                                    </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="mobile-menu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End header area -->
+    <main>
+        <!-- Start Breadcrumb Area -->
+        <div class="page-area bread-pd">
+            <div class="breadcumb-overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb-title text-center">
+                            <h1>使用API访问开启kerberos集群下的HDFS</h1>
+                            <div class="bread-come">
+                                <nav aria-label="breadcrumb ">
+                                    <ol class="breadcrumb purple lighten-4 justify-content-center">
+                                        <li class="breadcrumb-items"><a class="black-text" href="/">首页</a><i class="ti-angle-right" aria-hidden="true"></i></li>
+                                        <li class="breadcrumb-items"><a href="/news/">新闻资讯<i class="ti-angle-right" aria-hidden="true"></i></a></li>
+                                        <li class="breadcrumb-items">正文</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Breadcrumb Area -->
+        <!-- Service area start -->
+        <div class="service-area bg-color area-padding-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h4 id="使用api访问开启安全kerberos的hdfs">使用API访问开启安全Kerberos的Hdfs</h4> <ul> <li> <p>hadoop集群(cdh集群)在开启kerberos安全认证方式后，通常如果在集群shell客户端通过hadoop dfs命令访问的，经过kinit登录kerberos认证即可 ，如下所示</p> <ul> <li>如果不进行kinit登录kerberos用户，则不能进行hdfs操作，如图直接会报安全异常! <br /><img decoding="async" src="http://img.555519.xyz/uploads/20221230/42e381c26ba6788608c057157a17be1d.jpg" alt="使用API访问开启kerberos集群下的HDFS"> </li> <li>而如果进行kinit登录后就能进行hdfs操作了，通过kinit user@YOU-REALM 然后输出密码就能在当前交互下获取kerberos票据授权票据 <br /><img decoding="async" src="http://img.555519.xyz/uploads/20221230/766338f7e73a0b01743ec17bf5ad90e2.jpg" alt="使用API访问开启kerberos集群下的HDFS"> </li> </ul> </li> <li> <p>而如果通过程序在远程进行访问，显然不能再通过kinit来进行登录了，此时需要通过keytab文件来进行访问，keytab文件生成这里不在进行说明，主要说明获取keytab文件后如果通过代码来进行访问</p> </li> </ul> <pre class="prettyprint"><code class="hljs avrasm">package <span class="hljs-keyword">com</span><span class="hljs-preprocessor">.test</span><span class="hljs-preprocessor">.hdfs</span><span class="hljs-comment">;</span> import org<span class="hljs-preprocessor">.apache</span><span class="hljs-preprocessor">.hadoop</span><span class="hljs-preprocessor">.conf</span><span class="hljs-preprocessor">.Configuration</span><span class="hljs-comment">;</span> import org<span class="hljs-preprocessor">.apache</span><span class="hljs-preprocessor">.hadoop</span><span class="hljs-preprocessor">.fs</span><span class="hljs-preprocessor">.FileSystem</span><span class="hljs-comment">;</span> import org<span class="hljs-preprocessor">.apache</span><span class="hljs-preprocessor">.hadoop</span><span class="hljs-preprocessor">.fs</span><span class="hljs-preprocessor">.LocatedFileStatus</span><span class="hljs-comment">;</span> import org<span class="hljs-preprocessor">.apache</span><span class="hljs-preprocessor">.hadoop</span><span class="hljs-preprocessor">.fs</span><span class="hljs-preprocessor">.Path</span><span class="hljs-comment">;</span> import org<span class="hljs-preprocessor">.apache</span><span class="hljs-preprocessor">.hadoop</span><span class="hljs-preprocessor">.fs</span><span class="hljs-preprocessor">.RemoteIterator</span><span class="hljs-comment">;</span> import org<span class="hljs-preprocessor">.apache</span><span class="hljs-preprocessor">.hadoop</span><span class="hljs-preprocessor">.security</span><span class="hljs-preprocessor">.UserGroupInformation</span><span class="hljs-comment">;</span>  import javax<span class="hljs-preprocessor">.security</span><span class="hljs-preprocessor">.auth</span><span class="hljs-preprocessor">.Subject</span><span class="hljs-comment">;</span> import java<span class="hljs-preprocessor">.io</span><span class="hljs-preprocessor">.IOException</span><span class="hljs-comment">;</span> import java<span class="hljs-preprocessor">.net</span><span class="hljs-preprocessor">.URI</span><span class="hljs-comment">;</span> import java<span class="hljs-preprocessor">.security</span><span class="hljs-preprocessor">.PrivilegedExceptionAction</span><span class="hljs-comment">;</span>  public class HdfsTest {     public static void main(String[] args) throws Exception {         test1()<span class="hljs-comment">;</span>     }     //kerberos     public static void test1() throws Exception{         //设置java安全krb5配置，其中krb5<span class="hljs-preprocessor">.conf</span>文件可以从成功开启kerberos的集群任意一台节点/etc/krb5<span class="hljs-preprocessor">.conf</span>拿到,         //这里应该也可以直接设置一下两个属性获取 ，我没有测试这个          //System<span class="hljs-preprocessor">.setProperty</span>(<span class="hljs-string">"java.security.krb5.realm"</span>,<span class="hljs-string">"YOU-REALM.COM"</span>)<span class="hljs-comment">;</span>         //System<span class="hljs-preprocessor">.setProperty</span>(<span class="hljs-string">"java.security.krb5.KDC"</span>,<span class="hljs-string">"kdc_hostname"</span>)<span class="hljs-comment">;</span>         System<span class="hljs-preprocessor">.setProperty</span>(<span class="hljs-string">"java.security.krb5.conf"</span>, <span class="hljs-string">"E:\\test\\krb5.conf"</span>)         Configuration conf = new Configuration()<span class="hljs-comment">;</span>         //这里设置namenode新         conf<span class="hljs-preprocessor">.set</span>(<span class="hljs-string">"fs.defaultFS"</span>, <span class="hljs-string">"hdfs://namenode:8020"</span>)<span class="hljs-comment">;</span>         //需要增加hadoop开启了安全的配置         conf<span class="hljs-preprocessor">.setBoolean</span>(<span class="hljs-string">"hadoop.security.authorization"</span>, true)<span class="hljs-comment">;</span>         //配置安全认证方式为kerberos         conf<span class="hljs-preprocessor">.set</span>(<span class="hljs-string">"hadoop.security.authentication"</span>, <span class="hljs-string">"Kerberos"</span>)<span class="hljs-comment">;</span>         //设置namenode的principal         conf<span class="hljs-preprocessor">.set</span>(<span class="hljs-string">"dfs.namenode.kerberos.principal"</span>, <span class="hljs-string">"hdfs/_HOST@YOU-REALM.COM"</span>)<span class="hljs-comment">;</span>         //设置datanode的principal值为“hdfs/_HOST@YOU-REALM<span class="hljs-preprocessor">.COM</span>”         conf<span class="hljs-preprocessor">.set</span>(<span class="hljs-string">"dfs.datanode.kerberos.principal"</span>, <span class="hljs-string">"hdfs/_HOST@YOU-REALM.COM"</span>)<span class="hljs-comment">;</span>         //通过hadoop security下中的 UserGroupInformation类来实现使用keytab文件登录          UserGroupInformation<span class="hljs-preprocessor">.setConfiguration</span>(conf)<span class="hljs-comment">;</span>         //设置登录的kerberos principal和对应的keytab文件，其中keytab文件需要kdc管理员生成给到开发人员         UserGroupInformation<span class="hljs-preprocessor">.loginUserFromKeytab</span>(<span class="hljs-string">"user01@YOU-REALM.COM"</span>,<span class="hljs-string">"E:\\test\\user01.keytab"</span>)<span class="hljs-comment">;</span>         //获取带有kerberos验证的文件系统类         FileSystem fileSystem1 = FileSystem<span class="hljs-preprocessor">.get</span>(conf)<span class="hljs-comment">;</span>         //测试访问情况         Path path=new Path(<span class="hljs-string">"hdfs://namenodehost:8020/user/user01"</span>)<span class="hljs-comment">;</span>         if(fileSystem1<span class="hljs-preprocessor">.exists</span>(path)){             System<span class="hljs-preprocessor">.out</span><span class="hljs-preprocessor">.println</span>(<span class="hljs-string">"===contains==="</span>)<span class="hljs-comment">;</span>         }         RemoteIterator&lt;LocatedFileStatus&gt; list=fileSystem1<span class="hljs-preprocessor">.listFiles</span>(path,true)<span class="hljs-comment">;</span>         while (list<span class="hljs-preprocessor">.hasNext</span>()){             LocatedFileStatus fileStatus=list<span class="hljs-preprocessor">.next</span>()<span class="hljs-comment">;</span>             System<span class="hljs-preprocessor">.out</span><span class="hljs-preprocessor">.println</span>(fileStatus<span class="hljs-preprocessor">.getPath</span>())<span class="hljs-comment">;</span>         }     }   }</code></pre> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-73165.htm">卖狗上哪卖（卖狗去哪里买）</a></p>
+                                        <p>下一个：<a href="/news/article-73834.htm">动物疫苗要打几针才有效果呀 动物疫苗要打几针才有效果呀视频</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-62394.htm" title="全国领养宠物（全国领养宠物平台）">全国领养宠物（全国领养宠物平台）</a></li>
+                        <li class="py-2"><a href="/news/article-64196.htm" title="人用和兽用狂犬疫苗的区别 人用和兽用狂犬疫苗的区别在哪">人用和兽用狂犬疫苗的区别 人用和兽用狂犬疫苗的区别在哪</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-8-clash-v2ray-ss-ssr.htm" title="VPN加速器 | 3月8日19.3M/S|免费VPN/V2ray/SSR/Shadowrocket/Clash免费节点订阅分享">VPN加速器 | 3月8日19.3M/S|免费VPN/V2ray/SSR/Shadowrocket/Clash免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-10-node-share-links.htm" title="VPN加速器 | 3月10日22.8M/S|免费VPN/SSR/V2ray/Shadowrocket/Clash免费节点订阅分享">VPN加速器 | 3月10日22.8M/S|免费VPN/SSR/V2ray/Shadowrocket/Clash免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-7-free-node-subscribe.htm" title="VPN加速器 | 3月7日19.5M/S|免费VPN/Clash/V2ray/Shadowrocket/SSR免费节点订阅分享">VPN加速器 | 3月7日19.5M/S|免费VPN/Clash/V2ray/Shadowrocket/SSR免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-4-node-share-links.htm" title="VPN加速器 | 3月4日19.2M/S|免费VPN/SSR/Shadowrocket/V2ray/Clash免费节点订阅分享">VPN加速器 | 3月4日19.2M/S|免费VPN/SSR/Shadowrocket/V2ray/Clash免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-12-free-subscribe-node.htm" title="VPN加速器 | 3月12日19.3M/S|免费VPN/V2ray/SSR/Shadowrocket/Clash免费节点订阅分享">VPN加速器 | 3月12日19.3M/S|免费VPN/V2ray/SSR/Shadowrocket/Clash免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/news/article-72495.htm" title="养猫半年我查出弓形虫阴性（猫爬过的床单有弓形虫么）">养猫半年我查出弓形虫阴性（猫爬过的床单有弓形虫么）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-21-free-v2ray.htm" title="VPN加速器 | 2月21日19.4M/S|免费VPN/Clash/Shadowrocket/SSR/V2ray免费节点订阅分享">VPN加速器 | 2月21日19.4M/S|免费VPN/Clash/Shadowrocket/SSR/V2ray免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-2-free-subscribe-node.htm" title="VPN加速器 | 3月2日18.1M/S|免费VPN/Shadowrocket/SSR/V2ray/Clash免费节点订阅分享">VPN加速器 | 3月2日18.1M/S|免费VPN/Shadowrocket/SSR/V2ray/Clash免费节点订阅分享</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">42</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">36</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Service area End -->
+    </main>
+        <!-- Start Footer Area -->
+    <footer class="footer1">
+        <!-- Start Footer Bottom Area -->
+        <div class="footer-area-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> |
+                                <a href="/free-node/">免费节点</a> |
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <a href="/">VPN加速器 机场订阅节点官网</a> 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="footer-menu">
+                            <ul>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Terms & Condition</a></li>
+                                <li><a href="#">Privacy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Bottom Area -->
+    </footer>
+    <!-- End Footer Area -->
+    <!-- All JS here -->
+    <!-- modernizr JS -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- jquery latest version -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/jquery-1.12.4.min.js"></script>
+    <!-- Poper js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/bootstrap.min.js"></script>
+    <!-- owl.carousel js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/owl.carousel.min.js"></script>
+    <!-- Isotop js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/isotope.pkgd.min.js"></script>
+    <!-- meanmenu js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.meanmenu.js"></script>
+    <!-- Counter js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.counterup.min.js"></script>
+    <!-- waypoint js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/v2ray_clash/tilts.js"></script>
+    <!-- venobox js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/venobox.min.js"></script>
+    <!-- magnific js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/magnific.min.js"></script>
+    <!-- wow js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/wow.min.js"></script>
+    <!-- plugins js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/plugins.js"></script>
+    <!-- main js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
