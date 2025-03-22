@@ -1,0 +1,257 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://vpnjiasuqi.github.io/news/article-79269.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>基于Composer的Laravel扩展包开发工作流 ，实现laravle项目的文件管理</title>
+        <meta name="description" content="基于Composer的Laravel扩展包开发工作流 实现laravle项目的文件管理，添加文件/文件夹，删除文件，查看代码/文件（代码支持缩进，支持语法高亮）  composer 项目地址：http" />
+        <link rel="icon" href="/assets/website/img/v2ray_clash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="VPN加速器 机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://vpnjiasuqi.github.io/news/article-79269.htm" />
+    <meta property="og:site_name" content="VPN加速器 机场订阅节点官网" />
+    <meta property="og:title" content="基于Composer的Laravel扩展包开发工作流 ，实现laravle项目的文件管理" />
+    <meta property="og:image" content="https://vpnjiasuqi.github.io/uploads/20250105/297b35786f1d0a76555505ba906fefb5.webp" />
+        <meta property="og:release_date" content="2025-03-22T08:50:24" />
+    <meta property="og:updated_time" content="2025-03-22T08:50:24" />
+        <meta property="og:description" content="基于Composer的Laravel扩展包开发工作流 实现laravle项目的文件管理，添加文件/文件夹，删除文件，查看代码/文件（代码支持缩进，支持语法高亮）  composer 项目地址：http" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="基于Composer的Laravel扩展包开发工作流 ，实现laravle项目的文件管理">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- bootstrap 4.0 css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/bootstrap.min.css">
+    <!-- owl.carousel css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/owl.carousel.min.css">
+    <!-- Animate css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/animate.min.css">
+    <!-- magnific css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/magnific-popup.css">
+    <!-- meanmenu css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/meanmenu.min.css">
+    <!-- venobox css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/venobox.css">
+    <!-- Icon font css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/flaticon.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/style.css">
+    <!-- responsive css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/responsive.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0RR1MWQRCP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0RR1MWQRCP');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- preloader  -->
+    <div id="preloader"></div>
+    <!-- Start header -->
+    <header class="header-one">
+        <div id="sticker" class="header-menu-area header-area header-area-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-4 d-flex align-items-center">
+                        <div class="logo">
+                            <a href="/">
+                                                                <span>VPN加速器</span>
+                                                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 col-md-8">
+                        <div class="header_menu t-center">
+                            <nav id="mobile-menu">
+                                <ul class="main-menu">
+                                                                        <li class="contact"><a href="/">首页</a></li>
+                                                                        <li class="contact"><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li class="contact"><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li class="contact"><a href="/news/">新闻资讯</a></li>
+                                                                        <li class="contact"><a href="/client.htm">客户端</a></li>
+                                                                    </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="mobile-menu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End header area -->
+    <main>
+        <!-- Start Breadcrumb Area -->
+        <div class="page-area bread-pd">
+            <div class="breadcumb-overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb-title text-center">
+                            <h1>基于Composer的Laravel扩展包开发工作流 ，实现laravle项目的文件管理</h1>
+                            <div class="bread-come">
+                                <nav aria-label="breadcrumb ">
+                                    <ol class="breadcrumb purple lighten-4 justify-content-center">
+                                        <li class="breadcrumb-items"><a class="black-text" href="/">首页</a><i class="ti-angle-right" aria-hidden="true"></i></li>
+                                        <li class="breadcrumb-items"><a href="/news/">新闻资讯<i class="ti-angle-right" aria-hidden="true"></i></a></li>
+                                        <li class="breadcrumb-items">正文</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Breadcrumb Area -->
+        <!-- Service area start -->
+        <div class="service-area bg-color area-padding-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				</h1> <blockquote> <p>基于Composer的Laravel扩展包开发工作流</p> <p>实现laravle项目的文件管理，添加文件/文件夹，删除文件，查看代码/文件（代码支持缩进，支持语法高亮）</p> </blockquote> <p>composer 项目地址：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://packagist.org/packages/wuqb/laravel-codeview"  target="_blank" rel="nofollow">https://packagist.org/packages/wuqb/laravel-codeview</a></p> <p>github 项目地址：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://github.com/wuxiumu/code-management"  target="_blank" rel="nofollow">https://github.com/wuxiumu/code-management</a></p> <h2 id="1在项目下执行">1、在项目下执行</h2> <pre><code>mkdir packages // 创建packages 目录 cd packages // 进入 packages 目录 mkdir code-management // 创建code-management 目录，准备开发laravle文件管理</code></pre> <p>项目目录结构</p> <pre><code>- code-management 	--config 		--codemirror-5.31.0 [前端文件包] 		--codeview.php [配置名称，路由，登录密码的] 	--routes 		--codevew.php [codeview 路由地址] 	--src [开发包] 		--Faceds 			--CodeView.php 		--CodeView.php 		--CodeViewProvider.php 	--composer.json</code></pre> <h2 id="2修改composerjson-文件">2、修改composer.json 文件</h2> <pre><code class="language-json">"autoload-dev": {     "psr-4": {         "App\\": "app/"     } },</code></pre> <p>修改后</p> <pre><code class="language-json">"autoload-dev": {     "psr-4": {         "App\\": "app/",         "Wqb\\CodeView\\": "packages/code-management/src"     } },</code></pre> <h2 id="3执行-composer命令">3、执行 composer命令</h2> <pre><code>composer dump_autoload</code></pre> <h2 id="4添加包的serviceprovider">4、添加包的ServiceProvider</h2> <p>由于laravel的 package:discover 是读取 vendor/composer/installed.json 这个文件中安装的包，而我们的包是手动添加，所以无法自动添加ServiceProvider，手动在app.php中添加</p> <pre><code>     'providers' =&gt; [         Wqb\CodeView\CodeViewProvider::class     ],     'aliases' =&gt; [         'CodeView' =&gt; Wqb\CodeView\Facades\CodeView::class     ],</code></pre> <p>上代码</p> <p>code-management/composer.json</p> <pre><code class="language-json">{     "name": "wuqb/laravel-codeview",     "description": "laravel codeview",     "license": "MIT",     "authors": [         {             "name": "wuqb",             "email": "824543976@qq.com"         }     ],     "autoload": {       "psr-4": {         "Wqb\\CodeView\\": "src"       }     },     "require": {} }</code></pre> <p>code-management/config/codeview.php</p> <pre><code class="language-php">&lt;?php  return   [     'name' =&gt; '简单的线上代码管理工具',       'password' =&gt; 'tk12',       'route' =&gt; '/codeview',   ];</code></pre> <p>code-management/routes/codeview.php</p> <pre><code class="language-php">&lt;?php  Route::any('codeview','\Wqb\CodeView\CodeView@index');</code></pre> <p>code-management/src/Faceds/CodeView.php</p> <pre><code class="language-php">&lt;?php namespace Wqb\CodeView\Facades; use Illuminate\Support\Facades\Facade; class CodeView extends Facade {     protected static function getFacadeAccessor()     {         return 'codeview';     } }</code></pre> <p>code-management/src/CodeView.php</p> <pre><code class="language-php">&lt;?php  namespace Wqb\CodeView;  use Illuminate\Config\Repository; use Illuminate\Http\Request;  class CodeView {      protected $config;      /**      * 构造方法      */     public function __construct(Repository $config)     {         $this-&gt;config = $config-&gt;get('codeview');     }       /**      * 展示页      */     public function index(Request $request)     {         $this-&gt;head();         $this-&gt;viewAction($request);         $this-&gt;foot();     }      /**      * 展示处理      */     public function viewAction($request)     {         $password = $this-&gt;config['password'];         $n =  $this-&gt;config['route'];         $csrf_token = csrf_token();         if (isset($_COOKIE['filehelper_login_password_123456789']) &amp;&amp; $_COOKIE['filehelper_login_password_123456789'] == md5($password)) {             $c = $request-&gt;input('c');             $v = $request-&gt;input('v');             $a = $request-&gt;input('a');             $b = $request-&gt;input('b');             $v1 = './' . $v;             $va = $v1 . $a;             echo '&lt;h3&gt;' . $this-&gt;config['name'] . '&lt;/h3&gt;';             switch ($c) {                 case 'del':                     if (is_file($va) == true) {                         unlink($va);                         echo "成功删除" . $a . "！";                     } else {                         echo "文件已经被删除!";                     }                     break;                 case 'up':                     if ($_FILES["file"]["error"] &gt; 0) {                         echo "上传失败! 错误码：" . $_FILES["file"]["error"] . "&lt;br&gt;";                     } else {                         if (file_exists($v1 . $_FILES["file"]["name"])) {                             echo "文件已经存在。 ";                         } else {                             move_uploaded_file($_FILES["file"]["tmp_name"], $v1 . $_FILES["file"]["name"]);                             echo "上传成功！";                         }                     }                     break;                 case 'md':                     if ($a != "") {                         if (is_dir($va)) {                             echo "文件夹已存在！";                         } else {                             mkdir($va);                             echo '文件夹创建成功！';                         }                     } else {                         echo "文件夹名不能为空！";                     }                     break;                 case 'ed':                     if ($request-&gt;input('s') == "1") {                         $eded = fopen($va, 'w');                         fwrite($eded, $_POST['fs']);                         fclose($eded);                         echo '&lt;h3&gt;保存成功！&lt;/h3&gt;';                     } else {                         echo '&lt;a href="' . $n . '?v=' . $v . '"&gt;返回&lt;/a&gt;&lt;br&gt;                         &lt;form action="' . $n . '?v=' . $v . '&amp;a=' . $a . '&amp;c=ed&amp;s=1" method="post" enctype="multipart/form-data"&gt;                     &lt;textarea type="text" name="fs" id="ed"&gt;' . str_replace('&lt;/textarea&gt;', '&lt;/ t e xtarea&gt;', file_get_contents($va)) . '&lt;/textarea&gt;&lt;/br&gt;                     &lt;input type="hidden" name="_token" value="'.$csrf_token.'"&gt;                     &lt;button type="submit"&gt;保存&lt;/button&gt;&lt;/form&gt;';                     }                     break;                 default:                     # code...                     break;             }              //  编辑页面是否展示列表             if ($b == "1") {                         } else {                 echo '&lt;a href="' . $n . '?v=' . dirname($v) . '/"&gt;返回&lt;/a&gt;&lt;br&gt;                 &lt;table&gt;&lt;tr&gt;                 &lt;th&gt;名称&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&lt;/th&gt;                 &lt;th&gt;类型&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&lt;/th&gt;                 &lt;th&gt;大小&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&lt;/th&gt;                 &lt;th&gt;操作&amp;emsp;&amp;emsp;&amp;emsp;&amp;emsp;&lt;/th&gt;                 &lt;/tr&gt;                 ';                  if (is_dir($v1) == true) {                     $fs = scandir($v1);                     $i = 2;                     while ($i &lt;= count($fs) - 1) {                         if ($fs[$i] != $n) {                             echo "&lt;tr&gt;&lt;td&gt;" . $fs[$i] . "&lt;/td&gt;";                             if (is_dir($v1 . $fs[$i]) == true) {                                 echo "&lt;td&gt;文件夹&lt;/td&gt;";                                 echo "&lt;td&gt;-&lt;/td&gt;";                                 echo '&lt;td&gt;&lt;a href=' . $n . '?v=' . $v . $fs[$i] . '/&gt;打开&lt;/a&gt;&lt;/td&gt;';                             }                             if (is_file($v1 . $fs[$i]) == true) {                                 echo "&lt;td&gt;文件&lt;/td&gt;";                                 echo "&lt;td&gt;" . number_format(filesize($v1 . $fs[$i]) / 1024 / 1024, 4, ".", "") . "MB&lt;/td&gt;";                                 if (substr(strrchr($fs[$i], '.'), 1) !== 'php' &amp;&amp; substr(strrchr($fs[$i], '.'), 1) !== 'asp' &amp;&amp; substr(strrchr($fs[$i], '.'), 1) !== 'aspx' &amp;&amp; substr(strrchr($fs[$i], '.'), 1) !== 'do') {                                     echo '&lt;td&gt;&lt;a href="' . $v . $fs[$i] . '"&gt;下载&lt;/a&gt;';                                 } else {                                     echo '&lt;td&gt;&lt;a href="' . $v . $fs[$i] . '"&gt;打开&lt;/a&gt;';                                 }                                 echo '&amp;nbsp;&lt;a href="' . $n . '?c=del&amp;a=' . $fs[$i] . '&amp;v=' . $v . '"&gt;删除&lt;/a&gt;';                                 $ihzm = substr(strrchr($fs[$i], '.'), 1);                                 if ($ihzm !== 'png' &amp;&amp; $ihzm !== 'doc' &amp;&amp; $ihzm !== 'docx' &amp;&amp; $ihzm !== 'jpg' &amp;&amp; $ihzm !== 'gif' &amp;&amp; $ihzm !== 'zip' &amp;&amp;  $ihzm !== 'apk' &amp;&amp; $ihzm !== 'webp' &amp;&amp; $ihzm !== 'ppt' &amp;&amp; $ihzm !== 'pptx' &amp;&amp; $ihzm !== 'exe' &amp;&amp; $ihzm !== 'xls') {                                     echo '&amp;nbsp;&lt;a href="' . $n . '?c=ed&amp;v=' . $v . '&amp;a=' . $fs[$i] . '&amp;b=1"&gt;编辑&lt;/a&gt;';                                 }                                 echo '&lt;/td&gt;';                             }                              echo "&lt;/tr&gt;";                         }                         $i++;                     }                 }                                  echo '&lt;/table&gt;&lt;hr&gt;                 &lt;form action="' . $n . '?v=' . $v . '&amp;c=up" method="post" enctype="multipart/form-data"&gt;                 上传文件：&lt;input type="file" name="file"&gt;                 &lt;input type="hidden" name="_token" value="'.$csrf_token.'"&gt;                 &lt;input type="submit" value="上传"&gt;                 &lt;/form&gt;                 &lt;form action="' . $n . '" method="get" enctype="multipart/form-data"&gt;                 &lt;input type="hidden" name="_token" value="'.$csrf_token.'"&gt;                 新建文件夹：&lt;input type="text" name="a"&gt;&lt;input type="hidden" name="c" value="md"&gt;&lt;input type="hidden" name="v" value="' . $v . '"&gt;                 &lt;input type="submit" value="新建"&gt;                 &lt;/form&gt;';             }         } else {             if ($request-&gt;input('password') == $password) {                 setcookie("filehelper_login_password_123456789", md5($password), time() + 3600);                 header("location:" . $n);             } else {                 $this-&gt;form();             }         }     }      /**      * 登录文件管理验证      */     public function form()     {         $csrf_token=csrf_token();         echo &lt;&lt;&lt;EOF         &lt;form action="" method="post" enctype="multipart/form-data"&gt;         请输入密码         &lt;input type="hidden" name="_token" value="$csrf_token"&gt;         &lt;input type="password" name="password"&gt;         &lt;input type="submit" value="登录"&gt;         &lt;/form&gt; EOF;     }      /**      * 头部      * 引入必要的js，css      */     public function head()     {         echo &lt;&lt;&lt;EOF                 &lt;!DOCTYPE html&gt;                 &lt;html lang="en"&gt;                 &lt;!--begin code mirror --&gt;                 &lt;!--下面两个是使用Code Mirror必须引入的--&gt;                 &lt;link  href="/src/codemirror-5.31.0/lib/codemirror.css" /&gt;                 &lt;script src="/src/codemirror-5.31.0/lib/codemirror.js"&gt;&lt;/script&gt;                 &lt;!--Java代码高亮必须引入--&gt;                 &lt;script src="/src/codemirror-5.31.0/clike.js"&gt;&lt;/script&gt;                 &lt;!--groovy代码高亮--&gt;                 &lt;script src="/src/codemirror-5.31.0/mode/groovy/groovy.js"&gt;&lt;/script&gt;                 &lt;!--引入css文件，用以支持主题--&gt;                 &lt;link  href="/src/codemirror-5.31.0/theme/dracula.css" /&gt;                                  &lt;!--支持代码折叠--&gt;                 &lt;link  href="/src/codemirror-5.31.0/addon/fold/foldgutter.css" /&gt;                 &lt;script src="/src/codemirror-5.31.0/addon/fold/foldcode.js"&gt;&lt;/script&gt;                 &lt;script src="/src/codemirror-5.31.0/addon/fold/foldgutter.js"&gt;&lt;/script&gt;                 &lt;script src="/src/codemirror-5.31.0/addon/fold/brace-fold.js"&gt;&lt;/script&gt;                 &lt;script src="/src/codemirror-5.31.0/addon/fold/comment-fold.js"&gt;&lt;/script&gt;                 &lt;!--括号匹配--&gt;                 &lt;script src="/src/codemirror-5.31.0/addon/edit/matchbrackets.js"&gt;&lt;/script&gt;                 &lt;!--end Code Mirror --&gt;                                  &lt;head&gt;                     &lt;meta charset="utf-8" /&gt;                     &lt;title&gt;文件管理&lt;/title&gt;                 &lt;/head&gt; EOF;     }      /**      * 脚部      * js 配置：代码折叠 | 设置主题 | 代码高亮| 设置代码框的长宽      */     public function foot()     {         echo &lt;&lt;&lt;EOF         &lt;script&gt;         var editor = CodeMirror.fromTextArea(document.getElementById("ed"), {             mode: "text/groovy", //实现groovy代码高亮             mode: "text/x-java", //实现Java代码高亮             lineNumbers: true, //显示行号             theme: "dracula", //设置主题             lineWrapping: true, //代码折叠             foldGutter: true,             gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],             matchBrackets: true, //括号匹配             //readOnly: true,        //只读         });         editor.setSize('100%', '400px');     //设置代码框的长宽     &lt;/script&gt;     &lt;/body&gt;     &lt;/html&gt; EOF;     }   }</code></pre> <p>code-management/src/CodeViewProvider.php</p> <pre><code class="language-php">&lt;?php namespace Wqb\CodeView; use Illuminate\Support\ServiceProvider; class CodeViewProvider extends ServiceProvider {     /**      * Bootstrap the application services.      *      * @return void      */     public function boot()     {         $this-&gt;loadRoutesFrom(__DIR__.'/../routes/codeview.php');         $this-&gt;publishes([             __DIR__.'/../config/codemirror-5.31.0' =&gt; base_path('public/src/codemirror-5.31.0'),         ]);     }     /**      * Register the application services.      *      * @return void      */     public function register()     {         $this-&gt;app-&gt;singleton('codeview', function ($app) {             return new CodeView($app['config']);         });     } }</code></pre> <h2 id="5访问项目地址codeview">5、访问项目地址/codeview</h2> <p>登录页<br /> 密码：</p> <pre><code>tk12</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/8753a367b32aeecb0ada0cf65a1d1b83.jpg" alt="基于Composer的Laravel扩展包开发工作流 ，实现laravle项目的文件管理"></p> <p>列表页</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/0a014616aa0bef51ac408af43d300ae1.jpg" alt="基于Composer的Laravel扩展包开发工作流 ，实现laravle项目的文件管理"></p> <p>查看编辑页</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/20c8d1d32684602e0bb13115edecda9c.jpg" alt="基于Composer的Laravel扩展包开发工作流 ，实现laravle项目的文件管理"></p> <p>文件上传，新建目录</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/170d97b4e066431998056d1edb2fc28d.jpg" alt="基于Composer的Laravel扩展包开发工作流 ，实现laravle项目的文件管理"></p> <h2 id="6提交推送到git仓库">6、提交推送到git仓库</h2> <p>不懂可以百度，如何提交代码到github仓库</p> <h2 id="7发布到packagist">7、发布到packagist</h2> <ol> <li> <p>注册登录Packagist（<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://links.jianshu.com/go?to=https%3A%2F%2Fpackagist.org%2F"  target="_blank" rel="nofollow">https://packagist.org/</a>）</p> </li> <li> <p>点击右上角Submit</p> </li> <li> <p>将你的Github地址贴进去，点Check</p> </li> </ol> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/247889437cacc425ae9fad641c723d6f.jpg" alt="基于Composer的Laravel扩展包开发工作流 ，实现laravle项目的文件管理"></p> <h2 id="8可能遇到的问题">8、可能遇到的问题</h2> <h3 id="1could-not-find-a-version-of-package-matching-your-minimum-stability-stable">1、Could not find a version of package matching your minimum-stability (stable).</h3> <pre><code class="language-php">git tag v1.0 git push origin v1.0</code></pre> <h3 id="2could-not-find-package">2、Could not find package</h3> <pre><code>// 不要使用国内镜像，设置回 https://packagist.org composer config -g repo.packagist composer https://packagist.org</code></pre> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-78583.htm">国家兽药疫苗批号查询系统 国家兽药疫苗批号查询系统官网</a></p>
+                                        <p>下一个：<a href="/news/article-79270.htm">动物疫苗的使用范围 动物疫苗的使用范围有哪些</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-67305.htm" title="猫咪领养协议有法律效应吗（猫咪领养协议是否合理）">猫咪领养协议有法律效应吗（猫咪领养协议是否合理）</a></li>
+                        <li class="py-2"><a href="/news/article-60627.htm" title="宠物美容学校（西安牵手精灵宠物美容学校）">宠物美容学校（西安牵手精灵宠物美容学校）</a></li>
+                        <li class="py-2"><a href="/news/article-74501.htm" title="动物医院上班时间（动物医院几点下班）">动物医院上班时间（动物医院几点下班）</a></li>
+                        <li class="py-2"><a href="/news/article-66038.htm" title="沈阳免费领养宠物的平台叫什么（沈阳免费领养宠物的平台叫什么来着）">沈阳免费领养宠物的平台叫什么（沈阳免费领养宠物的平台叫什么来着）</a></li>
+                        <li class="py-2"><a href="/news/article-68558.htm" title="js(JavaScript)代码实现的TAB标签切换效果">js(JavaScript)代码实现的TAB标签切换效果</a></li>
+                        <li class="py-2"><a href="/news/article-66671.htm" title="python 可变参数 关键字参数_python函数参数（可变参数tuple和关键字参数list）">python 可变参数 关键字参数_python函数参数（可变参数tuple和关键字参数list）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-28-free-node-subscribe-links.htm" title="VPN加速器 | 2月28日22M/S|免费VPN/V2ray/Clash/SSR/Shadowrocket免费节点订阅分享">VPN加速器 | 2月28日22M/S|免费VPN/V2ray/Clash/SSR/Shadowrocket免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/news/article-76542.htm" title="猫粮进口牌子排行榜（猫粮进口牌子排行榜图片）">猫粮进口牌子排行榜（猫粮进口牌子排行榜图片）</a></li>
+                        <li class="py-2"><a href="/news/article-62983.htm" title="2021公务员国考报名公告在哪看（国考公告怎么看）">2021公务员国考报名公告在哪看（国考公告怎么看）</a></li>
+                        <li class="py-2"><a href="/news/article-78582.htm" title="做狗粮的机器多少钱（狗粮制作机器设备多少钱）">做狗粮的机器多少钱（狗粮制作机器设备多少钱）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">66</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">36</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Service area End -->
+    </main>
+        <!-- Start Footer Area -->
+    <footer class="footer1">
+        <!-- Start Footer Bottom Area -->
+        <div class="footer-area-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> |
+                                <a href="/free-node/">免费节点</a> |
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <a href="/">VPN加速器 机场订阅节点官网</a> 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="footer-menu">
+                            <ul>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Terms & Condition</a></li>
+                                <li><a href="#">Privacy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Bottom Area -->
+    </footer>
+    <!-- End Footer Area -->
+    <!-- All JS here -->
+    <!-- modernizr JS -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- jquery latest version -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/jquery-1.12.4.min.js"></script>
+    <!-- Poper js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/bootstrap.min.js"></script>
+    <!-- owl.carousel js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/owl.carousel.min.js"></script>
+    <!-- Isotop js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/isotope.pkgd.min.js"></script>
+    <!-- meanmenu js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.meanmenu.js"></script>
+    <!-- Counter js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.counterup.min.js"></script>
+    <!-- waypoint js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/v2ray_clash/tilts.js"></script>
+    <!-- venobox js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/venobox.min.js"></script>
+    <!-- magnific js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/magnific.min.js"></script>
+    <!-- wow js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/wow.min.js"></script>
+    <!-- plugins js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/plugins.js"></script>
+    <!-- main js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
