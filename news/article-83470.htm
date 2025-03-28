@@ -1,0 +1,257 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://vpnjiasuqi.github.io/news/article-83470.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>C语言算法进阶——递归</title>
+        <meta name="description" content="文章目录  前言 一、递归是什么？ 二、递归的用途   1.解决一些数学问题 2.简化链表中一些操作 3.解决树的绝大多数问题 3.使用递归技巧   三、总结     学习算法的过程中，总会遇到一个让" />
+        <link rel="icon" href="/assets/website/img/v2ray_clash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="VPN加速器 机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://vpnjiasuqi.github.io/news/article-83470.htm" />
+    <meta property="og:site_name" content="VPN加速器 机场订阅节点官网" />
+    <meta property="og:title" content="C语言算法进阶——递归" />
+    <meta property="og:image" content="https://vpnjiasuqi.github.io/uploads/20250105/03bf0d86a25b7d4a4d86029c3fa885ad.webp" />
+        <meta property="og:release_date" content="2025-03-28T09:56:32" />
+    <meta property="og:updated_time" content="2025-03-28T09:56:32" />
+        <meta property="og:description" content="文章目录  前言 一、递归是什么？ 二、递归的用途   1.解决一些数学问题 2.简化链表中一些操作 3.解决树的绝大多数问题 3.使用递归技巧   三、总结     学习算法的过程中，总会遇到一个让" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="C语言算法进阶——递归">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- bootstrap 4.0 css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/bootstrap.min.css">
+    <!-- owl.carousel css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/owl.carousel.min.css">
+    <!-- Animate css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/animate.min.css">
+    <!-- magnific css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/magnific-popup.css">
+    <!-- meanmenu css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/meanmenu.min.css">
+    <!-- venobox css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/venobox.css">
+    <!-- Icon font css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/flaticon.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/style.css">
+    <!-- responsive css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/responsive.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0RR1MWQRCP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0RR1MWQRCP');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- preloader  -->
+    <div id="preloader"></div>
+    <!-- Start header -->
+    <header class="header-one">
+        <div id="sticker" class="header-menu-area header-area header-area-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-4 d-flex align-items-center">
+                        <div class="logo">
+                            <a href="/">
+                                                                <span>VPN加速器</span>
+                                                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 col-md-8">
+                        <div class="header_menu t-center">
+                            <nav id="mobile-menu">
+                                <ul class="main-menu">
+                                                                        <li class="contact"><a href="/">首页</a></li>
+                                                                        <li class="contact"><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li class="contact"><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li class="contact"><a href="/news/">新闻资讯</a></li>
+                                                                        <li class="contact"><a href="/client.htm">客户端</a></li>
+                                                                    </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="mobile-menu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End header area -->
+    <main>
+        <!-- Start Breadcrumb Area -->
+        <div class="page-area bread-pd">
+            <div class="breadcumb-overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb-title text-center">
+                            <h1>C语言算法进阶——递归</h1>
+                            <div class="bread-come">
+                                <nav aria-label="breadcrumb ">
+                                    <ol class="breadcrumb purple lighten-4 justify-content-center">
+                                        <li class="breadcrumb-items"><a class="black-text" href="/">首页</a><i class="ti-angle-right" aria-hidden="true"></i></li>
+                                        <li class="breadcrumb-items"><a href="/news/">新闻资讯<i class="ti-angle-right" aria-hidden="true"></i></a></li>
+                                        <li class="breadcrumb-items">正文</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Breadcrumb Area -->
+        <!-- Service area start -->
+        <div class="service-area bg-color area-padding-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <div class="toc"> <h3>文章目录</h3> <ul> <li><a href="#_4" rel="nofollow">前言</a></li> <li><a href="#_9" rel="nofollow">一、递归是什么？</a></li> <li><a href="#_17" rel="nofollow">二、递归的用途</a></li> <li> <ul> <li><a href="#1_18" rel="nofollow">1.解决一些数学问题</a></li> <li><a href="#2_49" rel="nofollow">2.简化链表中一些操作</a></li> <li><a href="#3_72" rel="nofollow">3.解决树的绝大多数问题</a></li> <li><a href="#3_99" rel="nofollow">3.使用递归技巧</a></li> </ul> </li> <li><a href="#_104" rel="nofollow">三、总结</a></li> </ul> </div> <hr/> </h1> <p>学习算法的过程中，总会遇到一个让你耳目一新，惊为天算的方法——递归</p> <hr/> </h1> <p>1、递归的定义非常简单：函数直接或间接的调用自己；<br /> 2、但是在这短短几个字中，也蕴含着递归的思想：<strong>分而治之</strong>；<br /> 3、分而治之又是什么呢？其实也很简单，就是：将一个大问题分成多个小问题来解决；<br /> 4、递归分为两个过程，我个人喜欢称这两个过程为<strong>递</strong>和<strong>归</strong>；<br /> 5、递的过程就是分解大问题的过程，归的过程是整合小问题的过程，整体就像是栈，递是向栈中存数据，归是向栈中取数据。<br /> 说了这么多，递归到底是解决什么样的问题呢？</p> </h1> <h2> <a id="1_18" rel="nofollow"></a>1.解决一些数学问题</h2> <p>（1）斐波那契数列<br /> 题目：斐波那契数列：1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, …<br /> 求n阶斐波那契数列。</p> <pre><code class="prism language-c"><span class="token keyword">int</span> <span class="token function">fib</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>     <span class="token keyword">if</span><span class="token punctuation">(</span>n<span class="token operator">==</span><span class="token number">0</span><span class="token punctuation">)</span>         <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>     <span class="token keyword">if</span><span class="token punctuation">(</span>n<span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span>         <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>     <span class="token keyword">if</span><span class="token punctuation">(</span>n<span class="token operator">==</span><span class="token number">2</span><span class="token punctuation">)</span>         <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>     <span class="token keyword">return</span> <span class="token function">fib</span><span class="token punctuation">(</span>n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token function">fib</span><span class="token punctuation">(</span>n<span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span> </code></pre> <p>（2）小青蛙跳台阶<br /> 题目：一只青蛙一次可以跳上1级台阶，也可以跳上2级。求该青蛙跳上一个n级的台阶总共有多少种跳法？</p> <pre><code class="prism language-c"><span class="token keyword">int</span> <span class="token function">numWays</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>     <span class="token keyword">if</span><span class="token punctuation">(</span>n<span class="token operator">&lt;</span><span class="token number">1</span><span class="token punctuation">)</span>         <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>     <span class="token keyword">if</span><span class="token punctuation">(</span>n<span class="token operator">==</span><span class="token number">1</span><span class="token punctuation">)</span>         <span class="token keyword">return</span> <span class="token number">1</span><span class="token punctuation">;</span>     <span class="token keyword">if</span><span class="token punctuation">(</span>n<span class="token operator">==</span><span class="token number">2</span><span class="token punctuation">)</span>         <span class="token keyword">return</span> <span class="token number">2</span><span class="token punctuation">;</span>     <span class="token keyword">return</span> <span class="token function">numWays</span><span class="token punctuation">(</span>n<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">+</span><span class="token function">numWays</span><span class="token punctuation">(</span>n<span class="token operator">-</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span> </code></pre> <h2> <a id="2_49" rel="nofollow"></a>2.简化链表中一些操作</h2> <p>（1）清空链表</p> <pre><code class="prism language-c"><span class="token keyword">void</span> <span class="token function">free_list</span><span class="token punctuation">(</span>Node <span class="token operator">*</span>head<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> 	<span class="token keyword">if</span><span class="token punctuation">(</span>head<span class="token operator">==</span><span class="token constant">NULL</span><span class="token punctuation">)</span> 		<span class="token keyword">return</span> <span class="token punctuation">;</span> 	head<span class="token operator">=</span>head<span class="token operator">-&gt;</span>next<span class="token punctuation">;</span> 	<span class="token function">free_list</span><span class="token punctuation">(</span>head<span class="token punctuation">)</span><span class="token punctuation">;</span> 	<span class="token function">free</span><span class="token punctuation">(</span>head<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span> </code></pre> <p>（2）移除链表元素</p> <pre><code class="prism language-c"><span class="token keyword">struct</span> <span class="token class-name">ListNode</span><span class="token operator">*</span> <span class="token function">removeElements</span><span class="token punctuation">(</span><span class="token keyword">struct</span> <span class="token class-name">ListNode</span><span class="token operator">*</span> head<span class="token punctuation">,</span> <span class="token keyword">int</span> val<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>     <span class="token keyword">if</span><span class="token punctuation">(</span>head<span class="token operator">==</span><span class="token constant">NULL</span><span class="token punctuation">)</span>         <span class="token keyword">return</span> head<span class="token punctuation">;</span>     head<span class="token operator">-&gt;</span>next<span class="token operator">=</span><span class="token function">removeElements</span><span class="token punctuation">(</span>head<span class="token operator">-&gt;</span>next<span class="token punctuation">,</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token keyword">return</span> head<span class="token operator">-&gt;</span>val<span class="token operator">==</span>val<span class="token operator">?</span>head<span class="token operator">-&gt;</span>next<span class="token operator">:</span>head<span class="token punctuation">;</span>  <span class="token punctuation">}</span> </code></pre> <h2> <a id="3_72" rel="nofollow"></a>3.解决树的绝大多数问题</h2> <p>（1）树的反转</p> <pre><code class="prism language-c"><span class="token keyword">void</span> <span class="token function">reverse_tree</span><span class="token punctuation">(</span>Tree_Node <span class="token operator">*</span>root<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> 	<span class="token keyword">if</span> <span class="token punctuation">(</span>root <span class="token operator">!=</span> <span class="token constant">NULL</span><span class="token punctuation">)</span>     <span class="token punctuation">{<!-- --></span> 		Tree_Node <span class="token operator">*</span>s<span class="token punctuation">;</span>         s <span class="token operator">=</span> root<span class="token operator">-&gt;</span>left<span class="token punctuation">;</span>         root<span class="token operator">-&gt;</span>left <span class="token operator">=</span> root<span class="token operator">-&gt;</span>right<span class="token punctuation">;</span>         root<span class="token operator">-&gt;</span>right <span class="token operator">=</span> s<span class="token punctuation">;</span>         <span class="token function">reverse_tree</span><span class="token punctuation">(</span>root<span class="token operator">-&gt;</span>left<span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token function">reverse_tree</span><span class="token punctuation">(</span>root<span class="token operator">-&gt;</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span> <span class="token punctuation">}</span> </code></pre> <p>（2）树的遍历</p> <pre><code class="prism language-c"><span class="token keyword">void</span> <span class="token function">pre_traverse</span><span class="token punctuation">(</span>Tree_Node <span class="token operator">*</span>root<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> 	<span class="token keyword">if</span><span class="token punctuation">(</span>root<span class="token operator">==</span><span class="token constant">NULL</span><span class="token punctuation">)</span> 		<span class="token keyword">return</span><span class="token punctuation">;</span> 	<span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">"%-5d"</span><span class="token punctuation">,</span>root<span class="token operator">-&gt;</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span> 	<span class="token function">pre_traverse</span><span class="token punctuation">(</span>root<span class="token operator">-&gt;</span>left<span class="token punctuation">)</span><span class="token punctuation">;</span> 	<span class="token function">pre_traverse</span><span class="token punctuation">(</span>root<span class="token operator">-&gt;</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span> </code></pre> <h2> <a id="3_99" rel="nofollow"></a>3.使用递归技巧</h2> <p>1、递归对解决链式结构问题有着天然优势，解决单链表通常只需要调用自己一次，解决二叉树通常要调用自己两次；<br /> 2、递归解决问题也分为两种方式，一个是在递的过程中解决问题，另一个是在归的过程中解决问题，比较经典的就是快速排序和归并排序(我之后会更新)。</p> <hr/> </h1> <p>1、递归在使用中是非常灵活的，也是非常难去想的，往往一个小问题都会在大脑中一遍一遍的绕，直到大脑爆栈。<br /> 2、作为一个小白来说，写这篇进阶确实不太好驾驭，还需要通过做题去熟悉，去磨练自己，第一篇文章的每日一练其实本意是挺好的，但是之后的题我没有去发，看看之后补发一下。<br /> 3、引用一下力扣书中的一句话——<strong>学习好递归的重要方法是：先模仿，再练习</strong>，所以现在不会也没关系，多多模仿，懂我意思吧！</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-82755.htm">宠物医院美团好评50字 宠物医院美团好评50字通用评论</a></p>
+                                        <p>下一个：<a href="/news/article-83471.htm">网店卖宠物用品赚钱吗（网店卖宠物用品赚钱吗现在）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-62393.htm" title="Java两个List＜T＞ 求交集,差集,并集,去重后的并集_java">Java两个List＜T＞ 求交集,差集,并集,去重后的并集_java</a></li>
+                        <li class="py-2"><a href="/news/article-82043.htm" title="spring schedule 动态配置执行时间">spring schedule 动态配置执行时间</a></li>
+                        <li class="py-2"><a href="/news/article-82755.htm" title="宠物医院美团好评50字 宠物医院美团好评50字通用评论">宠物医院美团好评50字 宠物医院美团好评50字通用评论</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-18-free-v2ray.htm" title="VPN加速器 | 3月18日21.1M/S|免费VPN/V2ray/Clash/SSR/Shadowrocket免费节点订阅分享">VPN加速器 | 3月18日21.1M/S|免费VPN/V2ray/Clash/SSR/Shadowrocket免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/news/article-73832.htm" title="使用API访问开启kerberos集群下的HDFS">使用API访问开启kerberos集群下的HDFS</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-25-node-share.htm" title="VPN加速器 | 3月25日22.8M/S|免费VPN/V2ray/SSR/Shadowrocket/Clash免费节点订阅分享">VPN加速器 | 3月25日22.8M/S|免费VPN/V2ray/SSR/Shadowrocket/Clash免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/news/article-76543.htm" title="重庆宠物领养中心地址电话是多少（重庆宠物领养中心在哪里）">重庆宠物领养中心地址电话是多少（重庆宠物领养中心在哪里）</a></li>
+                        <li class="py-2"><a href="/news/article-71843.htm" title="做宠物粮生意赚钱吗知乎文章（做宠物粮生意怎样）">做宠物粮生意赚钱吗知乎文章（做宠物粮生意怎样）</a></li>
+                        <li class="py-2"><a href="/news/article-59475.htm" title="女人养猫有什么坏处（女人养猫有什么坏处和好处）">女人养猫有什么坏处（女人养猫有什么坏处和好处）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-10-node-share-links.htm" title="VPN加速器 | 3月10日22.8M/S|免费VPN/SSR/V2ray/Shadowrocket/Clash免费节点订阅分享">VPN加速器 | 3月10日22.8M/S|免费VPN/SSR/V2ray/Shadowrocket/Clash免费节点订阅分享</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">36</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Service area End -->
+    </main>
+        <!-- Start Footer Area -->
+    <footer class="footer1">
+        <!-- Start Footer Bottom Area -->
+        <div class="footer-area-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> |
+                                <a href="/free-node/">免费节点</a> |
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <a href="/">VPN加速器 机场订阅节点官网</a> 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="footer-menu">
+                            <ul>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Terms & Condition</a></li>
+                                <li><a href="#">Privacy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Bottom Area -->
+    </footer>
+    <!-- End Footer Area -->
+    <!-- All JS here -->
+    <!-- modernizr JS -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- jquery latest version -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/jquery-1.12.4.min.js"></script>
+    <!-- Poper js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/bootstrap.min.js"></script>
+    <!-- owl.carousel js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/owl.carousel.min.js"></script>
+    <!-- Isotop js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/isotope.pkgd.min.js"></script>
+    <!-- meanmenu js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.meanmenu.js"></script>
+    <!-- Counter js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.counterup.min.js"></script>
+    <!-- waypoint js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/v2ray_clash/tilts.js"></script>
+    <!-- venobox js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/venobox.min.js"></script>
+    <!-- magnific js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/magnific.min.js"></script>
+    <!-- wow js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/wow.min.js"></script>
+    <!-- plugins js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/plugins.js"></script>
+    <!-- main js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
