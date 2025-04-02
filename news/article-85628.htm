@@ -1,0 +1,257 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://vpnjiasuqi.github.io/news/article-85628.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>CSS3 弹性布局弹性流（flex-flow）属性详解和实例</title>
+        <meta name="description" content="弹性布局是CSS3引入的强大的布局方式，用来替代以前Web开发人员使用的一些复杂而易错hacks方法（如使用float进行类似流式布局）。 其中flex-flow是flex-direction和fle" />
+        <link rel="icon" href="/assets/website/img/v2ray_clash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="VPN加速器 机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://vpnjiasuqi.github.io/news/article-85628.htm" />
+    <meta property="og:site_name" content="VPN加速器 机场订阅节点官网" />
+    <meta property="og:title" content="CSS3 弹性布局弹性流（flex-flow）属性详解和实例" />
+    <meta property="og:image" content="https://vpnjiasuqi.github.io/uploads/20250105/06733397fa897e86201dfbf3a5cf9a16.webp" />
+        <meta property="og:release_date" content="2025-03-31T08:43:18" />
+    <meta property="og:updated_time" content="2025-03-31T08:43:18" />
+        <meta property="og:description" content="弹性布局是CSS3引入的强大的布局方式，用来替代以前Web开发人员使用的一些复杂而易错hacks方法（如使用float进行类似流式布局）。 其中flex-flow是flex-direction和fle" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="CSS3 弹性布局弹性流（flex-flow）属性详解和实例">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- bootstrap 4.0 css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/bootstrap.min.css">
+    <!-- owl.carousel css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/owl.carousel.min.css">
+    <!-- Animate css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/animate.min.css">
+    <!-- magnific css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/magnific-popup.css">
+    <!-- meanmenu css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/meanmenu.min.css">
+    <!-- venobox css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/venobox.css">
+    <!-- Icon font css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/flaticon.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/style.css">
+    <!-- responsive css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/responsive.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0RR1MWQRCP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0RR1MWQRCP');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- preloader  -->
+    <div id="preloader"></div>
+    <!-- Start header -->
+    <header class="header-one">
+        <div id="sticker" class="header-menu-area header-area header-area-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-4 d-flex align-items-center">
+                        <div class="logo">
+                            <a href="/">
+                                                                <span>VPN加速器</span>
+                                                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 col-md-8">
+                        <div class="header_menu t-center">
+                            <nav id="mobile-menu">
+                                <ul class="main-menu">
+                                                                        <li class="contact"><a href="/">首页</a></li>
+                                                                        <li class="contact"><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li class="contact"><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li class="contact"><a href="/news/">新闻资讯</a></li>
+                                                                        <li class="contact"><a href="/client.htm">客户端</a></li>
+                                                                    </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="mobile-menu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End header area -->
+    <main>
+        <!-- Start Breadcrumb Area -->
+        <div class="page-area bread-pd">
+            <div class="breadcumb-overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb-title text-center">
+                            <h1>CSS3 弹性布局弹性流（flex-flow）属性详解和实例</h1>
+                            <div class="bread-come">
+                                <nav aria-label="breadcrumb ">
+                                    <ol class="breadcrumb purple lighten-4 justify-content-center">
+                                        <li class="breadcrumb-items"><a class="black-text" href="/">首页</a><i class="ti-angle-right" aria-hidden="true"></i></li>
+                                        <li class="breadcrumb-items"><a href="/news/">新闻资讯<i class="ti-angle-right" aria-hidden="true"></i></a></li>
+                                        <li class="breadcrumb-items">正文</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Breadcrumb Area -->
+        <!-- Service area start -->
+        <div class="service-area bg-color area-padding-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>弹性布局是CSS3引入的强大的布局方式，用来替代以前Web开发人员使用的一些复杂而易错hacks方法（如使用float进行类似流式布局）。</p> <p>其中flex-flow是flex-direction和flex-wrap属性的简写方式，语法如下：</p> <p><span style="color: rgb(69, 69, 69); font-family: song; font-size: 19.2px; line-height: 28.8px; background-color: rgb(245, 245, 245);">flex-flow: &lt;flex-direction&gt; || &lt;flex-wrap&gt;</span></p> <p><span style="color: rgb(69, 69, 69); font-family: song; font-size: 19.2px; line-height: 28.8px; background-color: rgb(245, 245, 245);">flex-direction: row（初始值） | row-reverse | column | column-reverse</span></p> <p><span style="color: rgb(69, 69, 69); font-family: song; font-size: 19.2px; line-height: 28.8px; background-color: rgb(245, 245, 245);">flex-wrap: nowrap（初始值） | wrap | wrap-reverse</span></p> <p>flex-direction定义了弹性项目在弹性容器中的放置方向，默认是row，即行内方向（一般而言是由左往右，但注意这个和书写模式有关）。</p> <p>flex-wrap定义是否需要拆行以使得弹性项目能被容器包含。*-reverse代表相反的方向。</p> <p>两者结合起来即flex-flow属性就确定了弹性容器在main axis和cross axis两个方向上的显示方式，下面的例子很直观的说明了各个属性值的区别：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220605/0a8fcc87399bb0f2bbd1eaaad164b7f3.jpg" alt="CSS3 弹性布局弹性流（flex-flow）属性详解和实例"></p> <pre><code class="language-css">.flex-container {     display: flex; } .flex-container.first {     flex-flow: row; } /* Initial value. Main-axis is    inline, no wrap. */  .flex-container.second {     flex-flow: column wrap;     -webkit-flex-flow: column wrap; } /* Main-axis is block-direction (top to bottom)    and lines wrap in the inline direction (rightwards). */  .flex-container.third {     flex-flow: row-reverse wrap-reverse; } /* Main-axis is the opposite of inline direction    (right to left). New lines wrap upwards. */ /* other styles just for format */  ul {     padding: 0; } li {     list-style: none; } .flex-container {     background: deepskyblue;     width: 200px;     height: 200px;     margin: 5px auto; } .flex-container.first {     height: 100px; } .flex-item {     background: tomato;     padding: 5px;     width: 80px;     height: 80px;     margin: 5px;     line-height: 80px;     color: white;     font-weight: bold;     font-size: 2em;     text-align: center; } h1 {     font-size: 22px;     text-align: center; } .flex-demo {     display: flex; }</code></pre> <p>上例中的第1个弹性项列表使用了默认属性也就是row且不拆行，弹性项的宽度在需要的时候会被压缩。<br />第2个列表使用了column wrap，表示主轴方向是从上往下，而行拆分的方向是行内方向（向右）。<br />而第3个列表使用了row-reverse wrap-reverse，表示主轴方向是行内相反方向（从右到左），新行向上拆分。</p> <p>你可以通过在线实例自己试试看：<a target="_blank" href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://wow.techbrood.com/fiddle/16981"  rel="nofollow">http://wow.techbrood.com/fiddle/16981</a></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-84906.htm">动物疫苗概念股票代码（动物疫苗概念股票代码查询）</a></p>
+                                        <p>下一个：<a href="/news/article-85629.htm">被打过疫苗的动物咬了需要***吗（被打过疫苗的动物咬了需要***吗）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-67303.htm" title="CountDownLatch和CyclicBarrier：如何让多线程步调一致">CountDownLatch和CyclicBarrier：如何让多线程步调一致</a></li>
+                        <li class="py-2"><a href="/news/article-75187.htm" title="宠物医院好评回复模板（宠物医院好评模板100字）">宠物医院好评回复模板（宠物医院好评模板100字）</a></li>
+                        <li class="py-2"><a href="/news/article-82044.htm" title="领养宠物需要什么条件和手续2021年的（领养宠物需要什么条件和手续2021年的）">领养宠物需要什么条件和手续2021年的（领养宠物需要什么条件和手续2021年的）</a></li>
+                        <li class="py-2"><a href="/news/article-68558.htm" title="js(JavaScript)代码实现的TAB标签切换效果">js(JavaScript)代码实现的TAB标签切换效果</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-11-free-high-speed-nodes.htm" title="VPN加速器 | 3月11日22.4M/S|免费VPN/Shadowrocket/SSR/V2ray/Clash免费节点订阅分享">VPN加速器 | 3月11日22.4M/S|免费VPN/Shadowrocket/SSR/V2ray/Clash免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/news/article-85629.htm" title="被打过疫苗的动物咬了需要***吗（被打过疫苗的动物咬了需要***吗）">被打过疫苗的动物咬了需要***吗（被打过疫苗的动物咬了需要***吗）</a></li>
+                        <li class="py-2"><a href="/news/article-71843.htm" title="做宠物粮生意赚钱吗知乎文章（做宠物粮生意怎样）">做宠物粮生意赚钱吗知乎文章（做宠物粮生意怎样）</a></li>
+                        <li class="py-2"><a href="/news/article-66671.htm" title="python 可变参数 关键字参数_python函数参数（可变参数tuple和关键字参数list）">python 可变参数 关键字参数_python函数参数（可变参数tuple和关键字参数list）</a></li>
+                        <li class="py-2"><a href="/news/article-73834.htm" title="动物疫苗要打几针才有效果呀 动物疫苗要打几针才有效果呀视频">动物疫苗要打几针才有效果呀 动物疫苗要打几针才有效果呀视频</a></li>
+                        <li class="py-2"><a href="/news/article-76543.htm" title="重庆宠物领养中心地址电话是多少（重庆宠物领养中心在哪里）">重庆宠物领养中心地址电话是多少（重庆宠物领养中心在哪里）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Service area End -->
+    </main>
+        <!-- Start Footer Area -->
+    <footer class="footer1">
+        <!-- Start Footer Bottom Area -->
+        <div class="footer-area-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="copyright">
+                            <p>
+                                <a href="/">首页</a> |
+                                <a href="/free-node/">免费节点</a> |
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                            <a href="/">VPN加速器 机场订阅节点官网</a> 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="footer-menu">
+                            <ul>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Terms & Condition</a></li>
+                                <li><a href="#">Privacy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Bottom Area -->
+    </footer>
+    <!-- End Footer Area -->
+    <!-- All JS here -->
+    <!-- modernizr JS -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- jquery latest version -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/jquery-1.12.4.min.js"></script>
+    <!-- Poper js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/bootstrap.min.js"></script>
+    <!-- owl.carousel js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/owl.carousel.min.js"></script>
+    <!-- Isotop js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/isotope.pkgd.min.js"></script>
+    <!-- meanmenu js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.meanmenu.js"></script>
+    <!-- Counter js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.counterup.min.js"></script>
+    <!-- waypoint js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/v2ray_clash/tilts.js"></script>
+    <!-- venobox js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/venobox.min.js"></script>
+    <!-- magnific js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/magnific.min.js"></script>
+    <!-- wow js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/wow.min.js"></script>
+    <!-- plugins js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/plugins.js"></script>
+    <!-- main js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
