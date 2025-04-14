@@ -1,0 +1,259 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://vpnjiasuqi.github.io/news/article-95194.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>vue中给buttion按钮添加键盘回车（enter）事件</title>
+        <meta name="description" content="项目中遇到点击查询按钮可以查出数据，点击回车键也能查出数据，所以就想点击回车键时调用查询方法。 以下代码可实现此功能。 首先，button上有click事件，点击可实现搜索查询； created(){" />
+        <link rel="icon" href="/assets/website/img/v2ray_clash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="VPN加速器 机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://vpnjiasuqi.github.io/news/article-95194.htm" />
+    <meta property="og:site_name" content="VPN加速器 机场订阅节点官网" />
+    <meta property="og:title" content="vue中给buttion按钮添加键盘回车（enter）事件" />
+    <meta property="og:image" content="https://vpnjiasuqi.github.io/uploads/20250105/53beea186af51cd83e1ef2315317c6e8.webp" />
+        <meta property="og:release_date" content="2025-04-13T07:19:58" />
+    <meta property="og:updated_time" content="2025-04-13T07:19:58" />
+        <meta property="og:description" content="项目中遇到点击查询按钮可以查出数据，点击回车键也能查出数据，所以就想点击回车键时调用查询方法。 以下代码可实现此功能。 首先，button上有click事件，点击可实现搜索查询； created(){" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="vue中给buttion按钮添加键盘回车（enter）事件">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- bootstrap 4.0 css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/bootstrap.min.css">
+    <!-- owl.carousel css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/owl.carousel.min.css">
+    <!-- Animate css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/animate.min.css">
+    <!-- magnific css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/magnific-popup.css">
+    <!-- meanmenu css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/meanmenu.min.css">
+    <!-- venobox css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/venobox.css">
+    <!-- Icon font css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/flaticon.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/style.css">
+    <!-- responsive css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/responsive.css">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0RR1MWQRCP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0RR1MWQRCP');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- preloader  -->
+    <div id="preloader"></div>
+    <!-- Start header -->
+    <header class="header-one">
+        <div id="sticker" class="header-menu-area header-area header-area-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-4 d-flex align-items-center">
+                        <div class="logo">
+                            <a href="/">
+                                                                <span>VPN加速器</span>
+                                                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 col-md-8">
+                        <div class="header_menu t-center">
+                            <nav id="mobile-menu">
+                                <ul class="main-menu">
+                                                                        <li class="contact"><a href="/">首页</a></li>
+                                                                        <li class="contact"><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li class="contact"><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li class="contact"><a href="/news/">新闻资讯</a></li>
+                                                                        <li class="contact"><a href="/client.htm">客户端</a></li>
+                                                                    </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="mobile-menu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End header area -->
+    <main>
+        <!-- Start Breadcrumb Area -->
+        <div class="page-area bread-pd">
+            <div class="breadcumb-overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb-title text-center">
+                            <h1>vue中给buttion按钮添加键盘回车（enter）事件</h1>
+                            <div class="bread-come">
+                                <nav aria-label="breadcrumb ">
+                                    <ol class="breadcrumb purple lighten-4 justify-content-center">
+                                        <li class="breadcrumb-items"><a class="black-text" href="/">首页</a><i class="ti-angle-right" aria-hidden="true"></i></li>
+                                        <li class="breadcrumb-items"><a href="/news/">新闻资讯<i class="ti-angle-right" aria-hidden="true"></i></a></li>
+                                        <li class="breadcrumb-items">正文</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Breadcrumb Area -->
+        <!-- Service area start -->
+        <div class="service-area bg-color area-padding-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>项目中遇到点击查询按钮可以查出数据，点击回车键也能查出数据，所以就想点击回车键时调用查询方法。</p> <p>以下代码可实现此功能。</p> <p>首先，button上有click事件，点击可实现搜索查询；</p> <p>created(){}函数里面调用回车按下的事件方法</p> <p>关键的地方就是按下回车键的方法</p> <p><code class="language-html">methods:{<!-- --><br /> &nbsp;keyupEnter(){<!-- --><br /> &nbsp; &nbsp;document.onkeydown = e =&gt;{<!-- --><br /> &nbsp; &nbsp; &nbsp; let body = document.getElementsByTagName('body')[0]<br /> &nbsp; &nbsp; &nbsp; &nbsp; if (e.keyCode === 13 &amp;&amp; e.target.baseURI.match(/inputbook/) &amp;&amp; e.target === body) {<!-- --><br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;console.log('enter') // match(此处应填写文件在浏览器中的地址，如 '/home/index')，不写的话，其他页面也会有调用回车按下的方法<br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;this.handleAddBook() //调用查询方法<br /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}<br /> &nbsp; &nbsp; &nbsp; &nbsp;}<br /> &nbsp; &nbsp; },<br /> &nbsp; &nbsp; handleAddBook(){<!-- --><br /> &nbsp; &nbsp; &nbsp;&nbsp;<br /> &nbsp; &nbsp; }<br /> }</code></p> <p>&nbsp;</p> <p>示例代码如下：</p> <p>一、第一步： 给button按钮绑定@keyup.enter</p> <pre><code class="language-html hljs">&lt;div class="btn"&gt; &lt;!--如果是封装过的按钮，不是原生的按钮，需要加上.native才能生效--&gt;        &lt;Button  type="primary" @click="handleAddBook" @keyup.enter.native="handleAddBook"&gt;录入&lt;/Button&gt; &lt;/div&gt;</code></pre> <p>&nbsp;</p> <p>二、第二步：浏览器url：event.target.baseURI; 获取浏览器的路径地址</p> <pre><code class="language-html hljs">// 创建时 created(){        this.keyupEnter()//页面在创建时就调用键盘的回车事件，在结构代码中也可以不写@keyup.enter.native="handleAddBook"  },   methods:{             keyupEnter(){                 document.onkeydown = e =&gt;{                     let body = document.getElementsByTagName('body')[0]                     if (e.keyCode === 13 &amp;&amp; e.target.baseURI.match(/inputbook/) &amp;&amp; e.target === body) {                         console.log('enter') // match(此处应填写文件在浏览器中的地址，如 '/home/index')                         this.handleAddBook()                     }                 }             },             handleAddBook(){                 if(this.validate()){                     this._printQrcode()                 }               } }     </code></pre> <p>&nbsp;</p> <p>转载于:https://www.cnblogs.com/wangdashi/p/9646219.html</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-94467.htm">动物诊疗许可证在哪办手续啊（动物诊疗许可证在哪办手续啊多少钱）</a></p>
+                                        <p>下一个：<a href="/news/article-95196.htm">旧宫附近宠物美容店（旧宫附近宠物美容店有哪些）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-4-4-free-node-subscribe.htm" title="VPN加速器 | 4月4日22.7M/S|免费VPN/V2ray/Shadowrocket/SSR/Clash免费节点订阅分享">VPN加速器 | 4月4日22.7M/S|免费VPN/V2ray/Shadowrocket/SSR/Clash免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/news/article-82753.htm" title="为vscode开发一款svn右键菜单扩展">为vscode开发一款svn右键菜单扩展</a></li>
+                        <li class="py-2"><a href="/news/article-74500.htm" title="动物医院价格表图片大全集（动物医院价格表图片大全集高清）">动物医院价格表图片大全集（动物医院价格表图片大全集高清）</a></li>
+                        <li class="py-2"><a href="/news/article-70532.htm" title="在打包vue项目时报错的问题解决">在打包vue项目时报错的问题解决</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-7-node-share.htm" title="VPN加速器 | 4月7日22.9M/S|免费VPN/V2ray/Clash/SSR/Shadowrocket免费节点订阅分享">VPN加速器 | 4月7日22.9M/S|免费VPN/V2ray/Clash/SSR/Shadowrocket免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-24-free-high-speed-nodes.htm" title="VPN加速器 | 3月24日18.4M/S|免费VPN/Clash/SSR/Shadowrocket/V2ray免费节点订阅分享">VPN加速器 | 3月24日18.4M/S|免费VPN/Clash/SSR/Shadowrocket/V2ray免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/news/article-77220.htm" title="动物医院的号码是多少号 动物医院的号码是多少号啊">动物医院的号码是多少号 动物医院的号码是多少号啊</a></li>
+                        <li class="py-2"><a href="/news/article-87767.htm" title="宠物粮生产流程视频 宠物粮生产流程视频教程">宠物粮生产流程视频 宠物粮生产流程视频教程</a></li>
+                        <li class="py-2"><a href="/news/article-71843.htm" title="做宠物粮生意赚钱吗知乎文章（做宠物粮生意怎样）">做宠物粮生意赚钱吗知乎文章（做宠物粮生意怎样）</a></li>
+                        <li class="py-2"><a href="/news/article-75188.htm" title="动物医院价格表图片大全集高清视频（动物医院照片）">动物医院价格表图片大全集高清视频（动物医院照片）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">42</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Service area End -->
+    </main>
+        <!-- Start Footer Area -->
+    <footer class="footer1">
+        <!-- Start Footer Bottom Area -->
+        <div class="footer-area-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="copyright">
+                                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <a href="/">VPN加速器 机场订阅节点官网</a> 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="footer-menu">
+                            <ul>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Terms & Condition</a></li>
+                                <li><a href="#">Privacy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Bottom Area -->
+    </footer>
+    <!-- End Footer Area -->
+    <!-- All JS here -->
+    <!-- modernizr JS -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- jquery latest version -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/jquery-1.12.4.min.js"></script>
+    <!-- Poper js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/bootstrap.min.js"></script>
+    <!-- owl.carousel js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/owl.carousel.min.js"></script>
+    <!-- Isotop js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/isotope.pkgd.min.js"></script>
+    <!-- meanmenu js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.meanmenu.js"></script>
+    <!-- Counter js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.counterup.min.js"></script>
+    <!-- waypoint js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/v2ray_clash/tilts.js"></script>
+    <!-- venobox js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/venobox.min.js"></script>
+    <!-- magnific js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/magnific.min.js"></script>
+    <!-- wow js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/wow.min.js"></script>
+    <!-- plugins js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/plugins.js"></script>
+    <!-- main js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
