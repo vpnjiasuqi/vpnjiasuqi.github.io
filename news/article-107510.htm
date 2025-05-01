@@ -1,0 +1,262 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://vpnjiasuqi.github.io/news/article-107510.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Azure DevOps通过流水线完成Docker镜像的部署</title>
+        <meta name="description" content="上一篇文章中，我们通过azure的流水线完成了镜像推送到镜像仓库中去，本篇文章我们继续开始完成下一步，通过流水线把镜像从仓库拉取到任意一台公网的服务器上去， 完成镜像部署的闭环。 首先我们需要先准备一" />
+        <link rel="icon" href="/assets/website/img/v2ray_clash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="VPN加速器 机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://vpnjiasuqi.github.io/news/article-107510.htm" />
+    <meta property="og:site_name" content="VPN加速器 机场订阅节点官网" />
+    <meta property="og:title" content="Azure DevOps通过流水线完成Docker镜像的部署" />
+    <meta property="og:image" content="https://vpnjiasuqi.github.io/uploads/20250105/5b455e62afbcfaf3f36239fb6c6cddcc.webp" />
+        <meta property="og:release_date" content="2025-04-29T08:04:18" />
+    <meta property="og:updated_time" content="2025-04-29T08:04:18" />
+        <meta property="og:description" content="上一篇文章中，我们通过azure的流水线完成了镜像推送到镜像仓库中去，本篇文章我们继续开始完成下一步，通过流水线把镜像从仓库拉取到任意一台公网的服务器上去， 完成镜像部署的闭环。 首先我们需要先准备一" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Azure DevOps通过流水线完成Docker镜像的部署">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- bootstrap 4.0 css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/bootstrap.min.css">
+    <!-- owl.carousel css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/owl.carousel.min.css">
+    <!-- Animate css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/animate.min.css">
+    <!-- magnific css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/magnific-popup.css">
+    <!-- meanmenu css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/meanmenu.min.css">
+    <!-- venobox css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/venobox.css">
+    <!-- Icon font css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/flaticon.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/style.css">
+    <!-- responsive css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/responsive.css">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0RR1MWQRCP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0RR1MWQRCP');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- preloader  -->
+    <div id="preloader"></div>
+    <!-- Start header -->
+    <header class="header-one">
+        <div id="sticker" class="header-menu-area header-area header-area-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-4 d-flex align-items-center">
+                        <div class="logo">
+                            <a href="/">
+                                                                <span>VPN加速器</span>
+                                                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 col-md-8">
+                        <div class="header_menu t-center">
+                            <nav id="mobile-menu">
+                                <ul class="main-menu">
+                                                                        <li class="contact"><a href="/">首页</a></li>
+                                                                        <li class="contact"><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li class="contact"><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li class="contact"><a href="/news/">新闻资讯</a></li>
+                                                                        <li class="contact"><a href="/client.htm">客户端</a></li>
+                                                                    </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="mobile-menu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End header area -->
+    <main>
+        <!-- Start Breadcrumb Area -->
+        <div class="page-area bread-pd">
+            <div class="breadcumb-overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb-title text-center">
+                            <h1>Azure DevOps通过流水线完成Docker镜像的部署</h1>
+                            <div class="bread-come">
+                                <nav aria-label="breadcrumb ">
+                                    <ol class="breadcrumb purple lighten-4 justify-content-center">
+                                        <li class="breadcrumb-items"><a class="black-text" href="/">首页</a><i class="ti-angle-right" aria-hidden="true"></i></li>
+                                        <li class="breadcrumb-items"><a href="/news/">新闻资讯<i class="ti-angle-right" aria-hidden="true"></i></a></li>
+                                        <li class="breadcrumb-items">正文</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Breadcrumb Area -->
+        <!-- Service area start -->
+        <div class="service-area bg-color area-padding-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<p>上一篇文章中，我们通过azure的流水线完成了镜像推送到镜像仓库中去，本篇文章我们继续开始完成下一步，通过流水线把镜像从仓库拉取到任意一台公网的服务器上去，</p> <p>完成镜像部署的闭环。</p> <p>首先我们需要先准备一下部署的环境，我们先找一台服务器在上面安装一下docker的容器引擎，我的用系统版本是centos的，这里贴一下安装命令。</p> <div class="cnblogs_code"> <pre><span style="color: rgba(0, 0, 0, 1)">sudo yum remove docker \                   docker</span>-<span style="color: rgba(0, 0, 0, 1)">client \                   docker</span>-client-<span style="color: rgba(0, 0, 0, 1)">latest \                   docker</span>-<span style="color: rgba(0, 0, 0, 1)">common \                   docker</span>-<span style="color: rgba(0, 0, 0, 1)">latest \                   docker</span>-latest-<span style="color: rgba(0, 0, 0, 1)">logrotate \                   docker</span>-<span style="color: rgba(0, 0, 0, 1)">logrotate \                   docker</span>-<span style="color: rgba(0, 0, 0, 1)">engine  sudo yum install</span>-y yum-<span style="color: rgba(0, 0, 0, 1)">utils  sudo yum</span>-config-<span style="color: rgba(0, 0, 0, 1)">manager \</span>--add-<span style="color: rgba(0, 0, 0, 1)">repo \     https:</span><span style="color: rgba(0, 128, 0, 1)">//</span><span style="color: rgba(0, 128, 0, 1)">download.docker.com/linux/centos/docker-ce.repo</span><span style="color: rgba(0, 0, 0, 1)"> sudo yum install docker</span>-ce docker-ce-cli containerd.io</pre> </div> <p>执行完命令之后，执行一下systemctl start docker ,然后通过systemctl status docker 查看一下守护进程的状态，正常的话如下图所示：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/de4f2dcedb9bc77244a630784e4be017.jpg" alt="Azure DevOps通过流水线完成Docker镜像的部署"></p> <p>环境准备好之后，我们接下来去改造我们之前创建好的流水线，我们在我们已经完成了镜像推送到仓库的流水线上添加第三个任务，这个任务的目的是通过SSH登录到</p> <p>我们的公网服务器上去，然后在我们的服务器上登录到我们的镜像仓库，从仓库中获取到我们想要的镜像，最后进行镜像的部署。</p> <p>首先，添加ssh任务</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/2f1abea6ecab6947f4a064600395c3ae.jpg" alt="Azure DevOps通过流水线完成Docker镜像的部署"></p> <p>&nbsp;选择我们装好了docker环境的服务器，选择编辑在线脚本，脚本的主要内容是：登录我们之前做好的镜像仓库，从仓库中获取我们的镜像，执行docker run部署</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/a70484635f510a7c3cbd5f8ff36f7d6c.jpg" alt="Azure DevOps通过流水线完成Docker镜像的部署"></p> <p>&nbsp;脚本内容如下：</p> <div class="cnblogs_code"> <pre>docker login ccr.ccs.tencentyun.com --username=<span style="color: rgba(128, 0, 128, 1)">100008582177</span> --password=******<span style="color: rgba(0, 0, 0, 1)"> //这里我们使用</span>$(Build.BuildId)环境变量，让流水线自动拉取上一个任务编译好的镜像TAG</pre> <pre><span style="color: rgba(0, 0, 0, 1)">docker pull docker pull ccr.ccs.tencentyun.com</span>/my-registry/my-image-repository:test-<span style="color: rgba(0, 0, 0, 1)">$(Build.BuildId)<br/>docker run</span>-d --name test -p<span style="color: rgba(128, 0, 128, 1)">8080</span>:<span style="color: rgba(128, 0, 128, 1)">8081</span> ccr.ccs.tencentyun.com/my-registry/my-image-repository:test-$(Build.BuildId)</pre> </div> <p>编写好之后，我们运行一下流水线看看效果</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/ded43ec91b070c3719358f183c4cb0ee.jpg" alt="Azure DevOps通过流水线完成Docker镜像的部署"></p> <p>&nbsp;这里有个小插曲，就是我第一次运行的时候所有的命令都执行成功了，但是到最后流水线依然会报出异常，结果查证之后发现原来是最后docker向控制台输出了stderr，我去搜索了一番</p> <p>stackoverfolw上是这么答复的：</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/f0a997b5831cf75682c3d46e2dcdda9f.jpg" alt="Azure DevOps通过流水线完成Docker镜像的部署"></p> <p>&nbsp;所以我们需要按照提示去关闭ssh这个任务中的Fail on stderr选项。</p> <p>被这个玩意坑了我20分钟，太惨了。</p> <p>到这里，我们就完成了通过azure实现从镜像编译到部署的全套流程，接下来我们将会开始研究azure的更多功能。</p> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-106456.htm">宠物医院培训总结（宠物医院实训总结）</a></p>
+                                        <p>下一个：<a href="/news/article-107512.htm">狗狗免费领养中心榆次（榆次收狗狗的地方）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-104995.htm" title="Redis 如何保证数据库和缓存双写一致性？">Redis 如何保证数据库和缓存双写一致性？</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-28-free-v2ray-subscribe.htm" title="VPN加速器 | 4月28日19.4M/S|免费VPN/Shadowrocket/V2ray/SSR/Clash免费节点订阅分享">VPN加速器 | 4月28日19.4M/S|免费VPN/Shadowrocket/V2ray/SSR/Clash免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-25-free-node-subscribe.htm" title="VPN加速器 | 4月25日22.6M/S|免费VPN/Clash/V2ray/Shadowrocket/SSR免费节点订阅分享">VPN加速器 | 4月25日22.6M/S|免费VPN/Clash/V2ray/Shadowrocket/SSR免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/news/article-95196.htm" title="旧宫附近宠物美容店（旧宫附近宠物美容店有哪些）">旧宫附近宠物美容店（旧宫附近宠物美容店有哪些）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-30-node-share.htm" title="VPN加速器 | 4月30日21M/S|免费VPN/Clash/Shadowrocket/SSR/V2ray免费节点订阅分享">VPN加速器 | 4月30日21M/S|免费VPN/Clash/Shadowrocket/SSR/V2ray免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-24-free-subscribe-node.htm" title="VPN加速器 | 4月24日20.1M/S|免费VPN/SSR/V2ray/Clash/Shadowrocket免费节点订阅分享">VPN加速器 | 4月24日20.1M/S|免费VPN/SSR/V2ray/Clash/Shadowrocket免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/news/article-98138.htm" title="广州宠物领养微信群号是什么号（广州哪里有宠物领养机构）">广州宠物领养微信群号是什么号（广州哪里有宠物领养机构）</a></li>
+                        <li class="py-2"><a href="/news/article-101002.htm" title="超详细，Python 多线程总结的太到位了">超详细，Python 多线程总结的太到位了</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-13-free-v2ray-subscribe.htm" title="VPN加速器 | 4月13日22M/S|免费VPN/Clash/V2ray/Shadowrocket/SSR免费节点订阅分享">VPN加速器 | 4月13日22M/S|免费VPN/Clash/V2ray/Shadowrocket/SSR免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/news/article-94466.htm" title="Vue路由router详细总结">Vue路由router详细总结</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-05/" title="2025-05 归档">2025-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Service area End -->
+    </main>
+        <!-- Start Footer Area -->
+    <footer class="footer1">
+        <!-- Start Footer Bottom Area -->
+        <div class="footer-area-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="copyright">
+                                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <a href="/">VPN加速器 机场订阅节点官网</a> 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="footer-menu">
+                            <ul>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Terms & Condition</a></li>
+                                <li><a href="#">Privacy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Bottom Area -->
+    </footer>
+    <!-- End Footer Area -->
+    <!-- All JS here -->
+    <!-- modernizr JS -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- jquery latest version -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/jquery-1.12.4.min.js"></script>
+    <!-- Poper js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/bootstrap.min.js"></script>
+    <!-- owl.carousel js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/owl.carousel.min.js"></script>
+    <!-- Isotop js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/isotope.pkgd.min.js"></script>
+    <!-- meanmenu js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.meanmenu.js"></script>
+    <!-- Counter js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.counterup.min.js"></script>
+    <!-- waypoint js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/v2ray_clash/tilts.js"></script>
+    <!-- venobox js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/venobox.min.js"></script>
+    <!-- magnific js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/magnific.min.js"></script>
+    <!-- wow js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/wow.min.js"></script>
+    <!-- plugins js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/plugins.js"></script>
+    <!-- main js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
