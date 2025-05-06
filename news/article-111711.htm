@@ -1,0 +1,262 @@
+<!doctype html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://vpnjiasuqi.github.io/news/article-111711.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>springboot实现WebAPI版本控制</title>
+        <meta name="description" content="1.定义一个自定义版本注解 @Target({ElementType.TYPE}) @Retention(RetentionPolicy.RUNTIME) public @interface ApiV" />
+        <link rel="icon" href="/assets/website/img/v2ray_clash/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="VPN加速器 机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://vpnjiasuqi.github.io/news/article-111711.htm" />
+    <meta property="og:site_name" content="VPN加速器 机场订阅节点官网" />
+    <meta property="og:title" content="springboot实现WebAPI版本控制" />
+    <meta property="og:image" content="https://vpnjiasuqi.github.io/uploads/20250105/1e93b638242395de7a2a00f5da271e3d.webp" />
+        <meta property="og:release_date" content="2025-05-04T09:29:29" />
+    <meta property="og:updated_time" content="2025-05-04T09:29:29" />
+        <meta property="og:description" content="1.定义一个自定义版本注解 @Target({ElementType.TYPE}) @Retention(RetentionPolicy.RUNTIME) public @interface ApiV" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="springboot实现WebAPI版本控制">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    
+    <!-- bootstrap 4.0 css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/bootstrap.min.css">
+    <!-- owl.carousel css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/owl.carousel.min.css">
+    <!-- Animate css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/animate.min.css">
+    <!-- magnific css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/magnific-popup.css">
+    <!-- meanmenu css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/meanmenu.min.css">
+    <!-- venobox css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/venobox.css">
+    <!-- Icon font css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/font-awesome.min.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/themify-icons.css">
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/flaticon.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/style.css">
+    <!-- responsive css -->
+    <link rel="stylesheet" href="/assets/website/css/v2ray_clash/responsive.css">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0RR1MWQRCP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0RR1MWQRCP');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- preloader  -->
+    <div id="preloader"></div>
+    <!-- Start header -->
+    <header class="header-one">
+        <div id="sticker" class="header-menu-area header-area header-area-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-4 d-flex align-items-center">
+                        <div class="logo">
+                            <a href="/">
+                                                                <span>VPN加速器</span>
+                                                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-8 col-md-8">
+                        <div class="header_menu t-center">
+                            <nav id="mobile-menu">
+                                <ul class="main-menu">
+                                                                        <li class="contact"><a href="/">首页</a></li>
+                                                                        <li class="contact"><a href="/free-nodes/">免费节点</a></li>
+                                                                        <li class="contact"><a href="/paid-subscribe/">推荐机场</a></li>
+                                                                        <li class="contact"><a href="/news/">新闻资讯</a></li>
+                                                                        <li class="contact"><a href="/client.htm">客户端</a></li>
+                                                                    </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="mobile-menu"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- End header area -->
+    <main>
+        <!-- Start Breadcrumb Area -->
+        <div class="page-area bread-pd">
+            <div class="breadcumb-overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="breadcrumb-title text-center">
+                            <h1>springboot实现WebAPI版本控制</h1>
+                            <div class="bread-come">
+                                <nav aria-label="breadcrumb ">
+                                    <ol class="breadcrumb purple lighten-4 justify-content-center">
+                                        <li class="breadcrumb-items"><a class="black-text" href="/">首页</a><i class="ti-angle-right" aria-hidden="true"></i></li>
+                                        <li class="breadcrumb-items"><a href="/news/">新闻资讯<i class="ti-angle-right" aria-hidden="true"></i></a></li>
+                                        <li class="breadcrumb-items">正文</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Breadcrumb Area -->
+        <!-- Service area start -->
+        <div class="service-area bg-color area-padding-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                                        <input type="hidden" id="share-website-info" data-name="Clash Meta免费节点订阅站" data-url="https://clash-meta.github.io">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> </h1> <h2> <a id="1_2" rel="nofollow"></a>1.定义一个自定义版本注解</h2> <pre><code class="prism language-java"><span class="token annotation punctuation">@Target</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span><span class="token class-name">ElementType</span><span class="token punctuation">.</span><span class="token constant">TYPE</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token annotation punctuation">@Retention</span><span class="token punctuation">(</span><span class="token class-name">RetentionPolicy</span><span class="token punctuation">.</span><span class="token constant">RUNTIME</span><span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token annotation punctuation">@interface</span> <span class="token class-name">ApiVersion</span> <span class="token punctuation">{<!-- --></span>     <span class="token comment">/**      * @return版本号      */</span>     <span class="token keyword">int</span> <span class="token function">value</span><span class="token punctuation">(</span> <span class="token punctuation">)</span> <span class="token keyword">default</span> <span class="token number">1</span><span class="token punctuation">;</span> <span class="token punctuation">}</span> </code></pre> <h2> <a id="2URLApiVersionCondition_14" rel="nofollow"></a>2.自定义URL匹配规则ApiVersionCondition</h2> <pre><code class="prism language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>yangjunbo<span class="token punctuation">.</span>helloword<span class="token punctuation">.</span>properties</span><span class="token punctuation">;</span>  <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>mvc<span class="token punctuation">.</span>condition<span class="token punctuation">.</span></span><span class="token class-name">RequestCondition</span></span><span class="token punctuation">;</span>  <span class="token keyword">import</span> <span class="token import"><span class="token namespace">javax<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>http<span class="token punctuation">.</span></span><span class="token class-name">HttpServletRequest</span></span><span class="token punctuation">;</span> <span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>regex<span class="token punctuation">.</span></span><span class="token class-name">Matcher</span></span><span class="token punctuation">;</span> <span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>regex<span class="token punctuation">.</span></span><span class="token class-name">Pattern</span></span><span class="token punctuation">;</span>  <span class="token comment">/*接下来定义URL匹配逻辑，创建ApiVersionCondition类并继承RequestCondition接口，         其作用是进行版本号筛选，将提取请求URL中的版本号与注解上定义的版本号进行对比，以此来判断某个请求应落在哪个控制器上。*/</span> <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ApiVersionCondition</span> <span class="token keyword">implements</span> <span class="token class-name">RequestCondition</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">ApiVersionCondition</span><span class="token punctuation">&gt;</span></span> <span class="token punctuation">{<!-- --></span>     <span class="token keyword">private</span> <span class="token keyword">final</span> <span class="token keyword">static</span> <span class="token class-name">Pattern</span> <span class="token constant">VERSION_PREFIX_PATTERN</span> <span class="token operator">=</span> <span class="token class-name">Pattern</span><span class="token punctuation">.</span><span class="token function">compile</span><span class="token punctuation">(</span><span class="token string">".*v(\\d+).*"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token keyword">private</span> <span class="token keyword">int</span> apiVersion<span class="token punctuation">;</span>     <span class="token class-name">ApiVersionCondition</span><span class="token punctuation">(</span><span class="token keyword">int</span> apiVersion<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         <span class="token keyword">this</span><span class="token punctuation">.</span>apiVersion <span class="token operator">=</span> apiVersion<span class="token punctuation">;</span>     <span class="token punctuation">}</span>     <span class="token keyword">private</span> <span class="token keyword">int</span> <span class="token function">getApiVersion</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         <span class="token keyword">return</span> apiVersion<span class="token punctuation">;</span>     <span class="token punctuation">}</span>      <span class="token annotation punctuation">@Override</span>     <span class="token keyword">public</span> <span class="token class-name">ApiVersionCondition</span> <span class="token function">combine</span><span class="token punctuation">(</span><span class="token class-name">ApiVersionCondition</span> apiVersionCondition<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">ApiVersionCondition</span><span class="token punctuation">(</span>apiVersionCondition<span class="token punctuation">.</span><span class="token function">getApiVersion</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span>     <span class="token annotation punctuation">@Override</span>     <span class="token keyword">public</span> <span class="token class-name">ApiVersionCondition</span> <span class="token function">getMatchingCondition</span><span class="token punctuation">(</span><span class="token class-name">HttpServletRequest</span> httpServletRequest<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         <span class="token class-name">Matcher</span> m <span class="token operator">=</span> <span class="token constant">VERSION_PREFIX_PATTERN</span><span class="token punctuation">.</span><span class="token function">matcher</span><span class="token punctuation">(</span>httpServletRequest<span class="token punctuation">.</span><span class="token function">getRequestURI</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token keyword">if</span> <span class="token punctuation">(</span>m<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>             <span class="token class-name">Integer</span> version <span class="token operator">=</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>m<span class="token punctuation">.</span><span class="token function">group</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>             <span class="token keyword">if</span> <span class="token punctuation">(</span>version <span class="token operator">&gt;=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>apiVersion<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>                 <span class="token comment">//apiVersion = version;</span>                 <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">;</span>             <span class="token punctuation">}</span>         <span class="token punctuation">}</span>         <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span>     <span class="token annotation punctuation">@Override</span>     <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">compareTo</span><span class="token punctuation">(</span><span class="token class-name">ApiVersionCondition</span> apiVersionCondition<span class="token punctuation">,</span> <span class="token class-name">HttpServletRequest</span> httpServletRequest<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         <span class="token keyword">return</span> apiVersionCondition<span class="token punctuation">.</span><span class="token function">getApiVersion</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token keyword">this</span><span class="token punctuation">.</span>apiVersion<span class="token punctuation">;</span>     <span class="token punctuation">}</span> <span class="token punctuation">}</span> </code></pre> <h2> <a id="3RequestMappingHandlerMappingRequest_60" rel="nofollow"></a>3.使用RequestMappingHandlerMapping创建自定义的映射处理程序，根据Request参数匹配符合条件的处理程序</h2> <pre><code class="prism language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>yangjunbo<span class="token punctuation">.</span>helloword<span class="token punctuation">.</span>properties</span><span class="token punctuation">;</span>  <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">RequestMapping</span></span><span class="token punctuation">;</span> <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>mvc<span class="token punctuation">.</span>condition<span class="token punctuation">.</span></span><span class="token class-name">RequestCondition</span></span><span class="token punctuation">;</span> <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>mvc<span class="token punctuation">.</span>method<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">RequestMappingHandlerMapping</span></span><span class="token punctuation">;</span>  <span class="token keyword">import</span> <span class="token import"><span class="token namespace">java<span class="token punctuation">.</span>lang<span class="token punctuation">.</span>reflect<span class="token punctuation">.</span></span><span class="token class-name">Method</span></span><span class="token punctuation">;</span>  <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ApiRequestMappingHandlerMapping</span> <span class="token keyword">extends</span> <span class="token class-name">RequestMappingHandlerMapping</span> <span class="token punctuation">{<!-- --></span>     <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token class-name">String</span> <span class="token constant">VERSION_FLAG</span> <span class="token operator">=</span> <span class="token string">"{version}"</span><span class="token punctuation">;</span>      <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token class-name">RequestCondition</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">ApiVersionCondition</span><span class="token punctuation">&gt;</span></span> <span class="token function">createCondition</span><span class="token punctuation">(</span><span class="token class-name">Class</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span><span class="token punctuation">&gt;</span></span> clazz<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         <span class="token class-name">RequestMapping</span> classRequestMapping <span class="token operator">=</span> clazz<span class="token punctuation">.</span><span class="token function">getAnnotation</span><span class="token punctuation">(</span><span class="token class-name">RequestMapping</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token keyword">if</span> <span class="token punctuation">(</span>classRequestMapping <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>             <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>         <span class="token punctuation">}</span>         <span class="token class-name">StringBuilder</span> mappingUrlBuilder <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StringBuilder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token keyword">if</span> <span class="token punctuation">(</span>classRequestMapping<span class="token punctuation">.</span><span class="token function">value</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>length <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>             mappingUrlBuilder<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>classRequestMapping<span class="token punctuation">.</span><span class="token function">value</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token punctuation">}</span>         <span class="token class-name">String</span> mappingUrl <span class="token operator">=</span> mappingUrlBuilder<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>mappingUrl<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span><span class="token constant">VERSION_FLAG</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>             <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>         <span class="token punctuation">}</span>         <span class="token class-name">ApiVersion</span> apiVersion <span class="token operator">=</span> clazz<span class="token punctuation">.</span><span class="token function">getAnnotation</span><span class="token punctuation">(</span><span class="token class-name">ApiVersion</span><span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token keyword">return</span> apiVersion <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">?</span> <span class="token keyword">new</span> <span class="token class-name">ApiVersionCondition</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">ApiVersionCondition</span><span class="token punctuation">(</span>apiVersion<span class="token punctuation">.</span><span class="token function">value</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span>     <span class="token annotation punctuation">@Override</span>     <span class="token keyword">protected</span> <span class="token class-name">RequestCondition</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span><span class="token punctuation">&gt;</span></span> <span class="token function">getCustomMethodCondition</span><span class="token punctuation">(</span><span class="token class-name">Method</span> method<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         <span class="token keyword">return</span> <span class="token function">createCondition</span><span class="token punctuation">(</span>method<span class="token punctuation">.</span><span class="token function">getClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span>     <span class="token annotation punctuation">@Override</span>     <span class="token keyword">protected</span> <span class="token class-name">RequestCondition</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span><span class="token punctuation">&gt;</span></span> <span class="token function">getCustomTypeCondition</span><span class="token punctuation">(</span><span class="token class-name">Class</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span><span class="token punctuation">&gt;</span></span> handlerType<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         <span class="token keyword">return</span> <span class="token function">createCondition</span><span class="token punctuation">(</span>handlerType<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span> <span class="token punctuation">}</span>  </code></pre> <h2> <a id="4RequestMappingHandlerMapping_101" rel="nofollow"></a>4.配置注册自定义的RequestMappingHandlerMapping</h2> <pre><code class="prism language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>yangjunbo<span class="token punctuation">.</span>helloword<span class="token punctuation">.</span>properties</span><span class="token punctuation">;</span>  <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>autoconfigure<span class="token punctuation">.</span>web<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span></span><span class="token class-name">WebMvcRegistrations</span></span><span class="token punctuation">;</span> <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>context<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">Configuration</span></span><span class="token punctuation">;</span> <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>servlet<span class="token punctuation">.</span>mvc<span class="token punctuation">.</span>method<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">RequestMappingHandlerMapping</span></span><span class="token punctuation">;</span>  <span class="token annotation punctuation">@Configuration</span> <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">WebMvcRegistrationsConfig</span> <span class="token keyword">implements</span> <span class="token class-name">WebMvcRegistrations</span> <span class="token punctuation">{<!-- --></span>     <span class="token annotation punctuation">@Override</span>     <span class="token keyword">public</span> <span class="token class-name">RequestMappingHandlerMapping</span> <span class="token function">getRequestMappingHandlerMapping</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">ApiRequestMappingHandlerMapping</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span> <span class="token punctuation">}</span>  </code></pre> <h2> <a id="5_119" rel="nofollow"></a>5.创建测试接口</h2> <pre><code class="prism language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>yangjunbo<span class="token punctuation">.</span>helloword<span class="token punctuation">.</span>controller<span class="token punctuation">.</span>v1</span><span class="token punctuation">;</span>  <span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>yangjunbo<span class="token punctuation">.</span>helloword<span class="token punctuation">.</span>common<span class="token punctuation">.</span></span><span class="token class-name">JSONResult</span></span><span class="token punctuation">;</span> <span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>yangjunbo<span class="token punctuation">.</span>helloword<span class="token punctuation">.</span>properties<span class="token punctuation">.</span></span><span class="token class-name">ApiVersion</span></span><span class="token punctuation">;</span> <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">GetMapping</span></span><span class="token punctuation">;</span> <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">PathVariable</span></span><span class="token punctuation">;</span> <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">RequestMapping</span></span><span class="token punctuation">;</span> <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">RestController</span></span><span class="token punctuation">;</span>  <span class="token comment">// V1 版本的接口定义</span> <span class="token annotation punctuation">@RestController</span> <span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"api/{version}/order"</span><span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">OrderV1Controller</span> <span class="token punctuation">{<!-- --></span>     <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/delete/{orderId}"</span><span class="token punctuation">)</span>     <span class="token keyword">public</span> <span class="token class-name">JSONResult</span> <span class="token function">deleteOrderById</span><span class="token punctuation">(</span><span class="token annotation punctuation">@PathVariable</span> <span class="token class-name">String</span> orderId<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"V1删除订单成功："</span><span class="token operator">+</span>orderId<span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token keyword">return</span> <span class="token class-name">JSONResult</span><span class="token punctuation">.</span><span class="token function">ok</span><span class="token punctuation">(</span><span class="token string">"V1删除订单成功"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span>      <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/detail/{orderId}"</span><span class="token punctuation">)</span>     <span class="token keyword">public</span> <span class="token class-name">JSONResult</span> <span class="token function">queryOrderById</span><span class="token punctuation">(</span><span class="token annotation punctuation">@PathVariable</span> <span class="token class-name">String</span> orderId<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"V1获取订单详情成功："</span><span class="token operator">+</span>orderId<span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token keyword">return</span> <span class="token class-name">JSONResult</span><span class="token punctuation">.</span><span class="token function">ok</span><span class="token punctuation">(</span><span class="token string">"V1获取订单详情成功"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span> <span class="token punctuation">}</span>   </code></pre> <pre><code class="prism language-java"><span class="token keyword">package</span> <span class="token namespace">com<span class="token punctuation">.</span>yangjunbo<span class="token punctuation">.</span>helloword<span class="token punctuation">.</span>controller<span class="token punctuation">.</span>v2</span><span class="token punctuation">;</span>  <span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>yangjunbo<span class="token punctuation">.</span>helloword<span class="token punctuation">.</span>common<span class="token punctuation">.</span></span><span class="token class-name">JSONResult</span></span><span class="token punctuation">;</span> <span class="token keyword">import</span> <span class="token import"><span class="token namespace">com<span class="token punctuation">.</span>yangjunbo<span class="token punctuation">.</span>helloword<span class="token punctuation">.</span>properties<span class="token punctuation">.</span></span><span class="token class-name">ApiVersion</span></span><span class="token punctuation">;</span> <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">GetMapping</span></span><span class="token punctuation">;</span> <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">PathVariable</span></span><span class="token punctuation">;</span> <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">RequestMapping</span></span><span class="token punctuation">;</span> <span class="token keyword">import</span> <span class="token import"><span class="token namespace">org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>web<span class="token punctuation">.</span>bind<span class="token punctuation">.</span>annotation<span class="token punctuation">.</span></span><span class="token class-name">RestController</span></span><span class="token punctuation">;</span>  <span class="token comment">// V2 版本的接口定义</span> <span class="token annotation punctuation">@ApiVersion</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token annotation punctuation">@RestController</span> <span class="token annotation punctuation">@RequestMapping</span><span class="token punctuation">(</span><span class="token string">"api/{version}/order"</span><span class="token punctuation">)</span> <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">OrderV2Controller</span> <span class="token punctuation">{<!-- --></span>     <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/detail/{orderId}"</span><span class="token punctuation">)</span>     <span class="token keyword">public</span> <span class="token class-name">JSONResult</span> <span class="token function">queryOrdearById</span><span class="token punctuation">(</span><span class="token annotation punctuation">@PathVariable</span> <span class="token class-name">String</span> orderId<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"V2获取订单详情成功："</span><span class="token operator">+</span>orderId<span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token keyword">return</span> <span class="token class-name">JSONResult</span><span class="token punctuation">.</span><span class="token function">ok</span><span class="token punctuation">(</span><span class="token string">"V2获取订单详情成功"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span>      <span class="token annotation punctuation">@GetMapping</span><span class="token punctuation">(</span><span class="token string">"/list"</span><span class="token punctuation">)</span>     <span class="token keyword">public</span> <span class="token class-name">JSONResult</span> <span class="token function">list</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"V2,新增list订单列表接口"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token keyword">return</span> <span class="token class-name">JSONResult</span><span class="token punctuation">.</span><span class="token function">ok</span><span class="token punctuation">(</span><span class="token number">200</span><span class="token punctuation">,</span><span class="token string">"V2,新增list订单列表接口"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token punctuation">}</span> <span class="token punctuation">}</span>   </code></pre> <h2> <a id="6_181" rel="nofollow"></a>6.访问接口测试</h2> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230223/d685aed01f27e813551459c37c24cf18.jpg" alt="springboot实现WebAPI版本控制"><img decoding="async" src="http://img.555519.xyz/uploads/20230223/518e7885c4ecd3a32909c9886cb80620.jpg" alt="springboot实现WebAPI版本控制"><img decoding="async" src="http://img.555519.xyz/uploads/20230223/964b217d013bb2ba5a317acf262544a3.jpg" alt="springboot实现WebAPI版本控制"><br /><img decoding="async" src="http://img.555519.xyz/uploads/20230223/43663339bc4329d26d3d0ab608cfdc3d.jpg" alt="springboot实现WebAPI版本控制"><br /><img decoding="async" src="http://img.555519.xyz/uploads/20230223/3221b26a36ed1d5aac7af2e764122084.jpg" alt="springboot实现WebAPI版本控制"></p> <p>以上验证情况说明Web API的版本控制配置成功，<strong>实现了旧版本的稳定和新版本的更新。</strong><br /> 1）当请求正确的版本地址时，会自动匹配版本的对应接口。<br /> 2）当请求的版本大于当前版本时，默认匹配最新的版本。<br /> 3）高版本会默认继承低版本的所有接口。实现版本升级只关注变化的部分，没有变化的部分会自动平滑升级，这就是所谓的版本继承。<br /> 4）高版本的接口的新增和修改不会影响低版本。<br /><strong>这些特性使得在升级接口时，原有接口不受影响，只关注变化的部分，没有变化的部分自动平滑升级。这样使得Web API更加简洁，这就是实现Web API版本控制的意义所在。</strong><br /> 参考书籍 《springboot从入门到实战-章为忠著》</p> </p></div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-110886.htm">天津宠物猫领养中心电话地址（天津宠物领养天津宠物赠送）</a></p>
+                                        <p>下一个：<a href="/news/article-111714.htm">郑州市宠物医院（郑州市宠物医院赵罡）</a></p>
+                                    </div>
+                                    </div>
+                    <div class="col-md-3">
+                        <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-4-22-free-node-subscribe.htm" title="VPN加速器 | 4月22日20.2M/S|免费VPN/V2ray/Shadowrocket/Clash/SSR免费节点订阅分享">VPN加速器 | 4月22日20.2M/S|免费VPN/V2ray/Shadowrocket/Clash/SSR免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-28-free-v2ray-subscribe.htm" title="VPN加速器 | 4月28日19.4M/S|免费VPN/Shadowrocket/V2ray/SSR/Clash免费节点订阅分享">VPN加速器 | 4月28日19.4M/S|免费VPN/Shadowrocket/V2ray/SSR/Clash免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-25-free-node-subscribe.htm" title="VPN加速器 | 4月25日22.6M/S|免费VPN/Clash/V2ray/Shadowrocket/SSR免费节点订阅分享">VPN加速器 | 4月25日22.6M/S|免费VPN/Clash/V2ray/Shadowrocket/SSR免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-5-6-clash-v2ray-ss-ssr.htm" title="VPN加速器 | 5月6日20.5M/S|免费VPN/SSR/Clash/Shadowrocket/V2ray免费节点订阅分享">VPN加速器 | 5月6日20.5M/S|免费VPN/SSR/Clash/Shadowrocket/V2ray免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-16-free-v2ray.htm" title="VPN加速器 | 4月16日19.8M/S|免费VPN/Clash/V2ray/SSR/Shadowrocket免费节点订阅分享">VPN加速器 | 4月16日19.8M/S|免费VPN/Clash/V2ray/SSR/Shadowrocket免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-5-3-node-share-links.htm" title="VPN加速器 | 5月3日18.8M/S|免费VPN/SSR/V2ray/Clash/Shadowrocket免费节点订阅分享">VPN加速器 | 5月3日18.8M/S|免费VPN/SSR/V2ray/Clash/Shadowrocket免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-5-2-node-share-links.htm" title="VPN加速器 | 5月2日18.9M/S|免费VPN/Shadowrocket/Clash/SSR/V2ray免费节点订阅分享">VPN加速器 | 5月2日18.9M/S|免费VPN/Shadowrocket/Clash/SSR/V2ray免费节点订阅分享</a></li>
+                        <li class="py-2"><a href="/news/article-104995.htm" title="Redis 如何保证数据库和缓存双写一致性？">Redis 如何保证数据库和缓存双写一致性？</a></li>
+                        <li class="py-2"><a href="/news/article-109170.htm" title="猫不打疫苗没事吧（猫不打疫苗一定会生病吗）">猫不打疫苗没事吧（猫不打疫苗一定会生病吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-14-node-share.htm" title="VPN加速器 | 4月14日20.7M/S|免费VPN/SSR/Shadowrocket/V2ray/Clash免费节点订阅分享">VPN加速器 | 4月14日20.7M/S|免费VPN/SSR/Shadowrocket/V2ray/Clash免费节点订阅分享</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">14</span> <a href="/date/2025-05/" title="2025-05 归档">2025-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Service area End -->
+    </main>
+        <!-- Start Footer Area -->
+    <footer class="footer1">
+        <!-- Start Footer Bottom Area -->
+        <div class="footer-area-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="copyright">
+                                                <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                            <a href="/">VPN加速器 机场订阅节点官网</a> 版权所有 Powered by WordPress
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6">
+                        <div class="footer-menu">
+                            <ul>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Terms & Condition</a></li>
+                                <li><a href="#">Privacy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Bottom Area -->
+    </footer>
+    <!-- End Footer Area -->
+    <!-- All JS here -->
+    <!-- modernizr JS -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/modernizr-3.5.0.min.js"></script>
+    <!-- jquery latest version -->
+    <script src="/assets/website/js/frontend/v2ray_clash/vendor/jquery-1.12.4.min.js"></script>
+    <!-- Poper js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/popper.min.js"></script>
+    <!-- bootstrap js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/bootstrap.min.js"></script>
+    <!-- owl.carousel js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/owl.carousel.min.js"></script>
+    <!-- Isotop js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/isotope.pkgd.min.js"></script>
+    <!-- meanmenu js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.meanmenu.js"></script>
+    <!-- Counter js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/jquery.counterup.min.js"></script>
+    <!-- waypoint js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/waypoints.js"></script>
+    <script src="/assets/website/js/frontend/v2ray_clash/tilts.js"></script>
+    <!-- venobox js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/venobox.min.js"></script>
+    <!-- magnific js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/magnific.min.js"></script>
+    <!-- wow js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/wow.min.js"></script>
+    <!-- plugins js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/plugins.js"></script>
+    <!-- main js -->
+    <script src="/assets/website/js/frontend/v2ray_clash/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
